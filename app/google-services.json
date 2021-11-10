@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746054825021",
+    "project_id": "trip-for-everyone2",
+    "storage_bucket": "trip-for-everyone2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746054825021:android:3b9ef8aa64bfbd379fa654",
+        "android_client_info": {
+          "package_name": "com.example.trip_for_everyone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746054825021-2odvdgi6p7f585cqqisn5ecoa4b74ddv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCcxXXvC8gpGZXjwtg3YXmj6R0z2kMEO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746054825021-2odvdgi6p7f585cqqisn5ecoa4b74ddv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
