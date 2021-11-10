@@ -6,6 +6,7 @@
     tools:context=".Page2">
 
     <!-- TODO: Update blank fragment layout -->
+<<<<<<< HEAD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,5 +19,11 @@
             android:background="@color/purple_500"
             android:text="Page2" />
     </LinearLayout>
+=======
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+>>>>>>> origin/master
 
 </FrameLayout>
