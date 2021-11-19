@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "746054825021",
+    "firebase_url": "https://trip-for-everyone2-default-rtdb.firebaseio.com",
     "project_id": "trip-for-everyone2",
     "storage_bucket": "trip-for-everyone2.appspot.com"
   },
