@@ -2,11 +2,16 @@ package com.example.trip_for_everyone;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class NavigationFragment1 extends Fragment {
+
+    ViewPager2 viewPager2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +66,50 @@ public class NavigationFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_navigation, container, false);
+        View view = inflater.inflate(R.layout.fragment_navigation, container, false);
+        final int pageLimit = 5;
+        viewPager2 = (ViewPager2)view.findViewById(R.id.viewPager);
+        /////////////////여기
+        ArrayList<String> data = new ArrayList<>();
+        data.add("page1");
+        data.add("page2");
+        data.add("page3");
+        viewPager2.setOffscreenPageLimit(pageLimit);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+                if (positionOffsetPixels == 0) {
+                    viewPager2.setCurrentItem(position);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+//                mIndicator.animatePageSelected(position%num_page);
+            }
+
+        });
+
+        viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                float myOffset = position * -(80);
+                if (viewPager2.getOrientation() == ViewPager2.ORIENTATION_HORIZONTAL) {
+                    if (ViewCompat.getLayoutDirection(viewPager2) == ViewCompat.LAYOUT_DIRECTION_RTL) {
+                        page.setTranslationX(-myOffset);
+                    } else {
+                        page.setTranslationX(myOffset);
+                    }
+                } else {
+                    page.setTranslationY(myOffset);
+                }
+            }
+        });
+        //////////////////여기
+        viewPager2.setAdapter(new ViewPagerAdapter(data));
+
+        return view;
     }
 }

@@ -7,18 +7,25 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/navigationFragments"
         android:layout_width="match_parent"
-        android:layout_height="670sp"
-        android:orientation="horizontal" />
+        android:layout_height="match_parent"
 
+        android:orientation="horizontal">
+    </LinearLayout>
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:menu="@menu/navigation_menu"
+        android:layout_weight="1"
     />
 
 </LinearLayout>

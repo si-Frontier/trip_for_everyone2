@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(true/*첫 로그인일 경우*/){
-            Intent intent = new Intent(getApplicationContext(), CardNewsActivity.class);
-            startActivity(intent);
-        }
+//        if(true/*첫 로그인일 경우*/){
+//            Intent intent = new Intent(getApplicationContext(), CardNewsActivity.class);
+//            startActivity(intent);
+//        }
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
