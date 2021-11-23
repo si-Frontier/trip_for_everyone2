@@ -9,37 +9,38 @@ import android.widget.TextView;
 
 public class Mypage_main extends AppCompatActivity {
 
+    TextView mypage_etc;
+    TextView mypage_service_guide;
+    TextView mypage_account;
+    TextView myapge_app_setting;
     ImageView member_image;
     TextView member_res_text;
     TextView member_name_text;
     Button profile_edit_button;
-    ImageView bookmark_image;
-    ImageView fairtrip_img;
-    TextView course_text;
-    ImageView myreview_img;
-    TextView fairtrip_text;
-    TextView myreview_text;
-    TextView bookmark_text;
-    ImageView course_img;
-    Button logout_button;
+    Button mypage_logout_button;
+    Button course_text;
+    Button alarm;
+    Button myreview_text;
+    Button bookmark_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage_main);
 
+        mypage_etc = (TextView)findViewById(R.id.mypage_etc);
+        mypage_service_guide = (TextView)findViewById(R.id.mypage_service_guide);
+        mypage_account = (TextView)findViewById(R.id.mypage_account);
+        myapge_app_setting = (TextView)findViewById(R.id.myapge_app_setting);
+        profile_edit_button = (Button)findViewById(R.id.profile_edit_button);
         member_image = (ImageView)findViewById(R.id.member_image);
         member_res_text = (TextView)findViewById(R.id.member_res_text);
         member_name_text = (TextView)findViewById(R.id.member_name_text);
-        profile_edit_button = (Button)findViewById(R.id.profile_edit_button);
-        bookmark_image = (ImageView)findViewById(R.id.bookmark_image);
-        fairtrip_img = (ImageView)findViewById(R.id.fairtrip_img);
-        course_text = (TextView)findViewById(R.id.course_text);
-        myreview_img = (ImageView)findViewById(R.id.myreview_imag);
-        fairtrip_text = (TextView)findViewById(R.id.fairtrip_text);
-        myreview_text = (TextView)findViewById(R.id.myreview_text);
-        bookmark_text = (TextView)findViewById(R.id.bookmark_text);
-        course_img = (ImageView)findViewById(R.id.course_img);
-        logout_button = (Button) findViewById(R.id.logout_button);
+        profile_edit_button = (Button) findViewById(R.id.profile_edit_button);
+        mypage_logout_button = (Button) findViewById(R.id.mypage_logout_button);
+        course_text = (Button) findViewById(R.id.course_text);
+        alarm = (Button) findViewById(R.id.alarm);
+        myreview_text = (Button) findViewById(R.id.myreview_text);
+        bookmark_text = (Button) findViewById(R.id.bookmark_text);
     }
 }

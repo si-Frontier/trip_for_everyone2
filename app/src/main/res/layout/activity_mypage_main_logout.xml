@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Mypage_main"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="77dp">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Mypage_main_logout"
+tools:layout_editor_absoluteX="0dp"
+tools:layout_editor_absoluteY="77dp">
 
     <TextView
-        android:id="@+id/mypage_etc"
+        android:id="@+id/mypage_etc_logout"
         android:layout_width="62dp"
         android:layout_height="36dp"
         android:text="기타"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.707" />
 
     <TextView
-        android:id="@+id/mypage_service_guide"
+        android:id="@+id/mypage_service_guide_logout"
         android:layout_width="102dp"
         android:layout_height="37dp"
         android:text="이용 안내"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.603" />
 
     <TextView
-        android:id="@+id/mypage_account"
+        android:id="@+id/mypage_account_logout"
         android:layout_width="62dp"
         android:layout_height="36dp"
         android:text="계정"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.392" />
 
     <TextView
-        android:id="@+id/myapge_app_setting"
+        android:id="@+id/myapge_app_setting_logout"
         android:layout_width="86dp"
         android:layout_height="31dp"
         android:text="앱 설정"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/member_image"
+        android:id="@+id/member_image_logout"
         android:layout_width="94dp"
         android:layout_height="87dp"
         android:layout_marginStart="27dp"
@@ -75,10 +75,10 @@
         app:srcCompat="@drawable/ic_image" />
 
     <TextView
-        android:id="@+id/member_res_text"
+        android:id="@+id/member_res_text_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OOO동 거주"
+        android:text="지역인증하기 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
@@ -89,15 +89,15 @@
         app:layout_constraintVertical_bias="0.164" />
 
     <TextView
-        android:id="@+id/member_name_text"
+        android:id="@+id/member_name_text_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="35dp"
-        android:text="OOO님"
+        android:text="로그인 해주세요"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
         app:layout_constraintVertical_bias="0.103" />
 
     <Button
-        android:id="@+id/profile_edit_button"
+        android:id="@+id/profile_edit_button_logout"
         android:layout_width="111dp"
         android:layout_height="35dp"
         android:text="프로필 편집"
@@ -118,10 +118,10 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <Button
-        android:id="@+id/mypage_logout_button"
+        android:id="@+id/mypage_login_button"
         android:layout_width="111dp"
         android:layout_height="35dp"
-        android:text="로그아웃"
+        android:text="로그인"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +130,7 @@
         app:layout_constraintVertical_bias="0.836" />
 
     <Button
-        android:id="@+id/course_text"
+        android:id="@+id/course_text_logout"
         android:layout_width="58dp"
         android:layout_height="46dp"
         android:background="@drawable/course"
@@ -145,7 +145,7 @@
         app:layout_constraintVertical_bias="0.251" />
 
     <Button
-        android:id="@+id/alarm"
+        android:id="@+id/alarm_logout"
         android:layout_width="40dp"
         android:layout_height="44dp"
         android:background="@drawable/alarm"
@@ -158,7 +158,7 @@
         app:layout_constraintVertical_bias="0.252" />
 
     <Button
-        android:id="@+id/myreview_text"
+        android:id="@+id/myreview_text_logout"
         android:layout_width="54dp"
         android:layout_height="38dp"
         android:text="내가 쓴 리뷰"
@@ -170,7 +170,7 @@
         app:layout_constraintVertical_bias="0.253" />
 
     <Button
-        android:id="@+id/bookmark_text"
+        android:id="@+id/bookmark_text_logout"
         android:layout_width="61dp"
         android:layout_height="41dp"
         android:background="@drawable/bookmark"
