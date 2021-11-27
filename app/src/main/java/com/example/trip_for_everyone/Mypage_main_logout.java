@@ -2,7 +2,9 @@ package com.example.trip_for_everyone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,5 +43,18 @@ public class Mypage_main_logout extends AppCompatActivity {
         alarm_logout = (Button) findViewById(R.id.alarm_logout);
         myreview_text_logout = (Button) findViewById(R.id.myreview_text_logout);
         bookmark_text_logout = (Button) findViewById(R.id.bookmark_text_logout);
+
+
+
+        mypage_login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
 }

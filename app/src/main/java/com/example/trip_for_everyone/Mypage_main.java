@@ -2,10 +2,14 @@ package com.example.trip_for_everyone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Mypage_main extends AppCompatActivity {
 
@@ -42,5 +46,21 @@ public class Mypage_main extends AppCompatActivity {
         alarm = (Button) findViewById(R.id.alarm);
         myreview_text = (Button) findViewById(R.id.myreview_text);
         bookmark_text = (Button) findViewById(R.id.bookmark_text);
+
+
+
+        mypage_logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Mypage_main_logout.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
+
+
 }
