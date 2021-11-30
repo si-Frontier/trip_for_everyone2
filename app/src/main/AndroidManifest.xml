@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone">
         <activity
+
             android:name=".Mypage_main_logout"
             android:exported="true" />
 
@@ -28,7 +29,7 @@
             android:required="false" />
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".Local_check"></activity>
+        <activity android:name=".Local_check" />
         <activity
             android:name=".Mypage_main"
             android:exported="true" />
