@@ -66,7 +66,7 @@ public class NavigationFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_navigation, container, false);
+        View view = inflater.inflate(R.layout.fragment_navigation1, container, false);
         final int pageLimit = 5;
         viewPager2 = (ViewPager2)view.findViewById(R.id.viewPager);
         /////////////////여기

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
     private NavigationFragment2 navigationFragment2 = new NavigationFragment2();
+    private NavigationFragment3 navigationFragment3 = new NavigationFragment3();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment2).commitAllowingStateLoss();
                         break;
                     case R.id.menu3:
+                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment3).commitAllowingStateLoss();
                         break;
                 }
                 return true;
