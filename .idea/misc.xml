@@ -38,10 +38,10 @@
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_register.xml" value="0.196875" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation.xml" value="0.20052083333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation1.xml" value="0.20052083333333334" />
-        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.20052083333333334" />
-        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page1.xml" value="0.20052083333333334" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.25" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page1.xml" value="0.1" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page2.xml" value="0.20052083333333334" />
-        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page3.xml" value="0.20052083333333334" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page3.xml" value="0.1" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/menu/navigation_menu.xml" value="0.196875" />
       </map>
     </option>
