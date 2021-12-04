@@ -62,13 +62,13 @@ public class NavigationFragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_navigation2, container, false);
-//        Button button = rootView.findViewById(R.id.but);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        //Button button = rootView.findViewById(R.id.but);
+       /* button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
+            }
+        });*/
         return rootView;
     }
 }
