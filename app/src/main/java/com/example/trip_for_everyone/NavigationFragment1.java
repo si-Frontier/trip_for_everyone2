@@ -21,6 +21,8 @@ import java.util.ArrayList;
 public class NavigationFragment1 extends Fragment {
 
     ViewPager2 viewPager2;
+    StorageDownload download;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,10 +72,10 @@ public class NavigationFragment1 extends Fragment {
         final int pageLimit = 5;
         viewPager2 = (ViewPager2)view.findViewById(R.id.viewPager);
         /////////////////여기
-        ArrayList<String> data = new ArrayList<>();
-        data.add("page1");
-        data.add("page2");
-        data.add("page3");
+        ArrayList<String> path = new ArrayList<>();
+        path.add("test/seoulTower.png");
+        path.add("test/palace.png");
+        path.add("test/ic_logo.png");
         viewPager2.setOffscreenPageLimit(pageLimit);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -108,7 +110,7 @@ public class NavigationFragment1 extends Fragment {
             }
         });
         //////////////////여기
-        viewPager2.setAdapter(new ViewPagerAdapter(data));
+        viewPager2.setAdapter(new ViewPagerAdapter(path));
 
         return view;
     }

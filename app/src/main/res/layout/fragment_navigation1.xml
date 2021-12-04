@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:text="오늘의 추천/이달의 추천"
         android:textStyle="bold"
-        android:layout_marginLeft="10sp"
+        android:layout_marginLeft="19sp"
+        android:layout_marginTop="24sp"
+        android:layout_marginBottom="19sp"
         android:textSize="20sp"/>
 
         <androidx.viewpager2.widget.ViewPager2

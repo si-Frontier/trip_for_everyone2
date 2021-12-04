@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewHolderPage> {
-    private ArrayList<String> list;         //String을 바꿔줘야됨
-    ViewPagerAdapter(ArrayList<String> data){
-        this.list = data;
+    private ArrayList<String> path;         //String을 바꿔줘야됨
+    ViewPagerAdapter(ArrayList<String> path){
+        this.path = path;
     }
     @NonNull
     @Override
@@ -27,12 +27,12 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewHolderPage> {
     public void onBindViewHolder(@NonNull ViewHolderPage holder, int position) {
         if(holder instanceof ViewHolderPage){
             ViewHolderPage viewHolder = (ViewHolderPage) holder;
-            viewHolder.onBind(list.get(position));
+            viewHolder.onBind(path.get(position));//////////////////////////////////////////
         }
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return path.size();
     }
 }

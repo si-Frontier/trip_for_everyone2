@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 //            Intent intent = new Intent(getApplicationContext(), CardNewsActivity.class);
 //            startActivity(intent);
 //        }
+
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);

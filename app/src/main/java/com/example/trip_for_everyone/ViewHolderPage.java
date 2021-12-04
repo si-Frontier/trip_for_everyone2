@@ -1,6 +1,7 @@
 package com.example.trip_for_everyone;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -8,17 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ViewHolderPage extends RecyclerView.ViewHolder {
-    private TextView textView;
+    private ImageView imageView;
     private LinearLayout linearLayout;
     String data;
     public ViewHolderPage(@NonNull View itemView) {
         super(itemView);
-        textView = itemView.findViewById(R.id.pagerTextView);
+        imageView = itemView.findViewById(R.id.recommandImage1);
         linearLayout = itemView.findViewById(R.id.lllayout);
     }
 
-    public void onBind(String data){
+    public void onBind(String path){
         this.data = data;
-        textView.setText(data.toString());
+        StorageDownload download = new StorageDownload();
+        download.download(path, imageView, imageView.getContext());
+       // imageView.setText(data.toString());
     }
 }
