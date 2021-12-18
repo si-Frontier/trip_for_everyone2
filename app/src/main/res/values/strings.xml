@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">trip_for_everyone</string>
+    <string name="main_title">모두의 여행</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

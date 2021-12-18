@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_horizon_blue"
+            android:layout_gravity="center"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="19dp"-->
+<!--            android:text="@string/main_title">-->
+<!--        </TextView>-->
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
 
     <ScrollView
         android:layout_width="match_parent"

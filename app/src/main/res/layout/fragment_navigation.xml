@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".NavigationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오늘의 추천/이달의 추천"
+        android:textStyle="bold"
+        android:layout_marginLeft="19sp"
+        android:layout_marginTop="24sp"
+        android:layout_marginBottom="19sp"
+        android:textSize="20sp"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="300sp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:id="@+id/viewPager"/>
+    <me.relex.circleindicator.CircleIndicator3
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+
+        android:id="@+id/indicator"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

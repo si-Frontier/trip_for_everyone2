@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser user;
     private LoginActivity loginActivity;
     private FragmentManager fragmentManager = getSupportFragmentManager();
+    private NavigationFragment navigationFragment = new NavigationFragment();
     private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
     private NavigationFragment2 navigationFragment2 = new NavigationFragment2();
-    private NavigationFragment3 navigationFragment3 = new NavigationFragment3();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
+        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -42,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 switch (item.getItemId()){
                     case R.id.menu1:
-                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
+                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
                         break;
                     case R.id.menu2:
-                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment2).commitAllowingStateLoss();
+                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
                         break;
                     case R.id.menu3:
-                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment3).commitAllowingStateLoss();
+                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment2).commitAllowingStateLoss();
                         break;
                 }
                 return true;

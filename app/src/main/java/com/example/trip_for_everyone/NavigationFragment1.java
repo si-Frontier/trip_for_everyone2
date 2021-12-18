@@ -2,16 +2,11 @@ package com.example.trip_for_everyone;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,10 +14,6 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class NavigationFragment1 extends Fragment {
-
-    ViewPager2 viewPager2;
-    StorageDownload download;
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +34,7 @@ public class NavigationFragment1 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NavigationFragment.
+     * @return A new instance of fragment NavigationFragment2.
      */
     // TODO: Rename and change types and number of parameters
     public static NavigationFragment1 newInstance(String param1, String param2) {
@@ -68,50 +59,14 @@ public class NavigationFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_navigation1, container, false);
-        final int pageLimit = 5;
-        viewPager2 = (ViewPager2)view.findViewById(R.id.viewPager);
-        /////////////////여기
-        ArrayList<String> path = new ArrayList<>();
-        path.add("test/seoulTower.png");
-        path.add("test/palace.png");
-        path.add("test/ic_logo.png");
-        viewPager2.setOffscreenPageLimit(pageLimit);
-        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_navigation1, container, false);
+        //Button button = rootView.findViewById(R.id.but);
+       /* button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if (positionOffsetPixels == 0) {
-                    viewPager2.setCurrentItem(position);
-                }
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
             }
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-//                mIndicator.animatePageSelected(position%num_page);
-            }
-
-        });
-
-        viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float myOffset = position * -(80);
-                if (viewPager2.getOrientation() == ViewPager2.ORIENTATION_HORIZONTAL) {
-                    if (ViewCompat.getLayoutDirection(viewPager2) == ViewCompat.LAYOUT_DIRECTION_RTL) {
-                        page.setTranslationX(-myOffset);
-                    } else {
-                        page.setTranslationX(myOffset);
-                    }
-                } else {
-                    page.setTranslationY(myOffset);
-                }
-            }
-        });
-        //////////////////여기
-        viewPager2.setAdapter(new ViewPagerAdapter(path));
-
-        return view;
+        });*/
+        return rootView;
     }
 }
