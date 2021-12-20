@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -74,7 +76,16 @@ public class NavigationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_navigation, container, false);
         final int pageLimit = 5;
         viewPager2 = (ViewPager2)view.findViewById(R.id.viewPager);
-
+        /////////////////tmp///////////////
+        Button tmpButton = view.findViewById(R.id.tmpInfoBtn);
+        tmpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tmpintent = new Intent(getContext(), InfoActivity.class);
+                startActivity(tmpintent);
+            }
+        });
+        ////////////////////지울거////////////////
         ArrayList<String> path = new ArrayList<>();     //추천할 여행지를여기에 추가하면 됨
         path.add("test/seoulTower.png");
         path.add("test/palace.png");

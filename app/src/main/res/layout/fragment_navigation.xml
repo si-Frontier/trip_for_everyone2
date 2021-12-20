@@ -28,6 +28,11 @@
         android:layout_height="48sp"
 
         android:id="@+id/indicator"/>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="여행지 눌렀을떄"
+        android:id="@+id/tmpInfoBtn"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

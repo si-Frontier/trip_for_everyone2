@@ -10,10 +10,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50sp">
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@drawable/logo_horizon_blue"
             android:layout_gravity="center"/>
 <!--        <TextView-->
@@ -43,6 +43,7 @@
 
         android:orientation="horizontal">
     </LinearLayout>
+
     </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationBar"

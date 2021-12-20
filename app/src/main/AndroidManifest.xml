@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone">
         <activity
-
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".Mypage_main_logout"
             android:exported="true" />
 
