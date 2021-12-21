@@ -64,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp"
+        android:id="@+id/info_navigation"
         app:menu="@menu/info_menu"/>
     <View
         android:layout_width="match_parent"
