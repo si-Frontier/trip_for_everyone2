@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/infomenu1"
+        android:id="@+id/infomenu1"
+        android:icon="@drawable/bookmark"
+        />
+    <item
+        android:title="@string/infomenu2"
+        android:id="@+id/infomenu2"
+        />
+    <item
+        android:title="@string/infomenu3"
+        android:id="@+id/infomenu3"
+        />
+</menu>

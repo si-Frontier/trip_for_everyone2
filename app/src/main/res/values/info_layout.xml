@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">20sp</dimen>
+    <dimen name="big_font_size">36sp</dimen>
+    <dimen name="medium_font_size">24sp</dimen>
+    <dimen name="little_font_size">20sp</dimen>
+</resources>
