@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,7 +42,7 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mStorage = FirebaseStorage.getInstance();
-        Button local_check = (Button) findViewById(R.id.local_check);
+        ImageButton local_check = (ImageButton) findViewById(R.id.local_check);
         findViewById(R.id.check).setOnClickListener(onClickListener);
 
         local_check.setOnClickListener(new View.OnClickListener() {
