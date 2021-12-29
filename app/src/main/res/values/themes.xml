@@ -25,4 +25,18 @@
         </item>
 
     </style>
+
+
+    <!-- styles.xml -->
+    <style name="id">
+
+        <item name="android:textSize">
+            15sp
+        </item>
+
+        <item name="android:textColor">
+            #575757
+        </item>
+
+    </style>
 </resources>
