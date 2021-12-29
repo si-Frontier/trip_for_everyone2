@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/trip_for_everyone2/app/src/main/res/drawable/vector_56.xml" value="0.1" />
+        <entry key="..\:/GitHub/trip_for_everyone2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/GitHub/trip_for_everyone2/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/GitHub/trip_for_everyone2/app/src/main/res/layout/activity_mypage_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/GitHub/trip_for_everyone2/app/src/main/res/layout/activity_mypage_main_logout.xml" value="0.25364583333333335" />
+        <entry key="..\:/GitHub/trip_for_everyone2/app/src/main/res/layout/activity_register.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/USER/Desktop/trip_for_everyone2/app/src/main/res/layout/activity_card_news.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/trip_for_everyone2/app/src/main/res/layout/activity_local_check.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/trip_for_everyone2/app/src/main/res/layout/activity_login.xml" value="0.264" />
