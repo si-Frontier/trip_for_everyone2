@@ -3,7 +3,7 @@
     <item
         android:title="@string/infomenu1"
         android:id="@+id/infomenu1"
-        android:icon="@drawable/bookmark"
+        android:icon="@drawable/bookmark_pressed"
         />
     <item
         android:title="@string/infomenu2"

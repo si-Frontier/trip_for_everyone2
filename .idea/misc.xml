@@ -35,7 +35,12 @@
         <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/fragment_page2.xml" value="0.1296875" />
         <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/fragment_page3.xml" value="0.1296875" />
         <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/menu/navigation_menu.xml" value="0.1296875" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/background.xml" value="0.21666666666666667" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/ic_image.xml" value="0.27685185185185185" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_alarm_drawable.xml" value="0.21666666666666667" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_bookmark_drawable.xml" value="0.21666666666666667" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_course_drawable.xml" value="0.21666666666666667" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_schedule_drawable.xml" value="0.21666666666666667" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_card_news.xml" value="0.20052083333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_local_check.xml" value="0.20052083333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_login.xml" value="0.22" />
@@ -45,10 +50,11 @@
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_register.xml" value="0.196875" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation.xml" value="0.20052083333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation1.xml" value="0.20052083333333334" />
-        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.25" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.22" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page1.xml" value="0.1" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page2.xml" value="0.20052083333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_page3.xml" value="0.1" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/menu/info_menu.xml" value="0.20052083333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/menu/navigation_menu.xml" value="0.196875" />
       </map>
     </option>
