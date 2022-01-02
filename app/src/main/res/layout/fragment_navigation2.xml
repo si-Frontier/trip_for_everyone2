@@ -180,7 +180,7 @@
 
     <ImageButton
         android:id="@+id/imageView12"
-        android:layout_width="43dp"
+        android:layout_width="42dp"
         android:layout_height="43dp"
         android:background="@drawable/mypage_alarm_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
