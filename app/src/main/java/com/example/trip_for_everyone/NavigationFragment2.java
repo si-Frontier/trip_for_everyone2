@@ -108,7 +108,7 @@ public class NavigationFragment2 extends Fragment {
         bookmark_text = (Button) view.findViewById(R.id.bookmark_text);
 
 
-
+        //현재 로그인한 사용자 정보 받아오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // Name, email address, and profile photo Url
