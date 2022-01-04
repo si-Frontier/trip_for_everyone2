@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="여기에 작성해주세요"
+        android:text=""
         tools:layout_editor_absoluteX="70dp"
         tools:layout_editor_absoluteY="128dp"
         tools:ignore="MissingConstraints" />
