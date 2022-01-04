@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class InfoActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class InfoActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.info_fragment,infoFragment1).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.info_navigation);
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -37,17 +40,34 @@ public class InfoActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.infomenu1:
                         fragmentTransaction.replace(R.id.info_fragment,infoFragment1).commitAllowingStateLoss();
+                        fab.setVisibility(View.INVISIBLE);
                         break;
                     case R.id.infomenu2:
                         fragmentTransaction.replace(R.id.info_fragment,infoFragment2).commitAllowingStateLoss();
+                        fab.setVisibility(View.INVISIBLE);
                         break;
                     case R.id.infomenu3:
                         fragmentTransaction.replace(R.id.info_fragment, infoFragment3).commitAllowingStateLoss();
+                        fab.setVisibility(View.VISIBLE);
+
+
                         break;
                 }
                 return false;
             }
+
         });
+
+                      fab.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //    Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                                Intent intent = new Intent(getApplicationContext(), WriteReviewActivity.class);
+                               startActivity(intent);
+
+                            }
+                        });
 
         bookmark = findViewById(R.id.info_bookmark);
         bookmark.setOnClickListener(new View.OnClickListener() {

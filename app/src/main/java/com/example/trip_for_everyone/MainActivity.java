@@ -5,16 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
+
+import com.google.android.gms.common.api.Api;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -24,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private NavigationFragment navigationFragment = new NavigationFragment();
     private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
     private NavigationFragment2 navigationFragment2 = new NavigationFragment2();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        }
 
+
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
@@ -42,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu1:
                         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
                         break;
@@ -64,5 +76,11 @@ public class MainActivity extends AppCompatActivity {
 //            Intent loginIntent = new Intent(this, LoginActivity.class); //로그인 인텐트 만들어서 넘기고 LoginAcitivy if문 수정
 //            startActivity(loginIntent);
 //        }
+
+
+
+
     }
+
+
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InfoActivity"
     android:orientation="vertical">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,6 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider" />
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -31,60 +34,77 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="300sp">
-        <ImageView
-            android:layout_width="match_parent"
-            android:id="@+id/pictureViewer"
-            android:src="@drawable/logo_horizon_blue"
-            android:layout_height="match_parent"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="tmp"
-            android:id="@+id/info_bookmark"
-            android:layout_gravity="right|top"
-            android:src="@drawable/star"
-            android:background="@drawable/background"
-            android:layout_marginRight="@dimen/margin"/>
-    </FrameLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin"
-        android:textSize="@dimen/medium_font_size"
-        android:text="sample address"
-        android:gravity="start"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin"
-        android:textSize="@dimen/big_font_size"
-        android:text="sample name"
-        android:gravity="start"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="0dp"
-        android:id="@+id/info_navigation"
-        app:menu="@menu/info_menu"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300sp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/pictureViewer"
+                    android:src="@drawable/logo_horizon_blue"
+                    android:layout_height="match_parent"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tmp"
+                    android:id="@+id/info_bookmark"
+                    android:layout_gravity="right|top"
+                    android:src="@drawable/star"
+                    android:background="@drawable/background"
+                    android:layout_marginRight="@dimen/margin"/>
+            </FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:textSize="@dimen/medium_font_size"
+                android:text="sample address"
+                android:gravity="start"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:textSize="@dimen/big_font_size"
+                android:text="sample name"
+                android:gravity="start"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp"
+                android:id="@+id/info_navigation"
+                app:menu="@menu/info_menu"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
-        android:id="@+id/info_fragment">
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/info_fragment"
+                android:layout_width="401dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="9dp"
+        android:clickable="true"
+        android:src="@android:mipmap/sym_def_app_icon"
+        android:visibility="invisible"
+        app:backgroundTint="#5252FA"
+        app:rippleColor="#FFFFFF" />
+
+
+
+</RelativeLayout>
