@@ -7,13 +7,15 @@
     tools:context=".Local_check">
 
 
+    <!-- Group 564 -->
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="85dp"
         android:text="주소 나오는곳"
         app:layout_constraintBottom_toTopOf="@+id/local"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,14 +23,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
-        android:id="@+id/local"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <ImageView
+        android:layout_width="178dp"
+        android:layout_height="211dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="147dp"
-        android:text="주소확인버튼"
+        android:layout_marginTop="178dp"
+        android:layout_marginBottom="342dp"
+        android:src="@drawable/group_546" />
+
+    <ImageButton
+        android:id="@+id/local"
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="449dp"
+        android:src="@drawable/group_565"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
