@@ -1,19 +1,26 @@
 package com.example.trip_for_everyone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +31,7 @@ public class WriteReviewActivity extends AppCompatActivity {
     private String reviewNum;
     private String uid;
     private String content;
+    private String name;
     private EditText editContent;
 
     @Override
@@ -66,10 +74,23 @@ public class WriteReviewActivity extends AppCompatActivity {
                 // 로그인 O + 공백 아닐 때
                 else {
                     uid = user.getUid();
-                    //public info_review(int uid, String name, String content,nowtime)
+                    //user 이름 가져오기
+                    mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
+
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            name = dataSnapshot.getValue(String.class);
+                                }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+                        }
+                    });
+
                     //데이터 베이스 쓰기
-                    info_review review = new info_review(uid,"soyoung",content,System.currentTimeMillis());
-                    mDatabase.child("place").child("맥도날드")./*장소 받아오기*/child("review").child("review1").setValue(review);
+                    info_review review = new info_review(uid,name,content,System.currentTimeMillis());
+                    mDatabase.child("review").child(uid+System.currentTimeMillis())./*장소 받아오기*/setValue(review);
                 }
 
 

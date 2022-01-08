@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -55,10 +61,13 @@ public class NavigationFragment2 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String name;
+    private DatabaseReference mDatabase;
 
     /**
      * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+
+    * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
@@ -87,6 +96,8 @@ public class NavigationFragment2 extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -108,25 +119,81 @@ public class NavigationFragment2 extends Fragment {
         bookmark_text = (Button) view.findViewById(R.id.bookmark_text);
 
 
-        //현재 로그인한 사용자 정보 받아오기
+
+
+/*
+        //현재 로그인한 사용자 이름
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
             String uid = user.getUid();
+            mDatabase.child("users").child(uid).child("userName").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Log.d("MainActivity", "Single ValueEventListener : " + snapshot.getValue());
+                    name  = (String) snapshot.getValue();
+                    member_name_text.setText(name+"님");
+                }
+            }
 
-            email= email.substring(0,email.indexOf("@"));
-            member_name_text.setText(email+"님");
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+*/
+
+
+        /*
+        // 사용자 이름가져오기 ( 딜레이 문제 )
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            mDatabase.child("users").child(uid).child("userName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+
+                    }
+                    else {
+                        name  = String.valueOf(task.getResult().getValue());
+
+                        member_name_text.setText(name+"님");
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    }
+                }
+
+            });
         }
+*/
+
+
+
+        // addValueEventListener
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name = dataSnapshot.getValue(String.class);
+                System.out.println("fname"+ name);
+                member_name_text.setText(name+"님");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+            }
+        });
+
+
+          //  String name = getArguments().getString("name");
+
 
 
         mypage_logout_button.setOnClickListener(new View.OnClickListener() {
@@ -140,3 +207,5 @@ public class NavigationFragment2 extends Fragment {
         return view;
     }
 }
+
+
