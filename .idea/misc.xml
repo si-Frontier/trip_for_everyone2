@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_bookmark_drawable.xml" value="0.21197916666666666" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_mypage_main.xml" value="0.19583333333333333" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_service_guide.xml" value="0.4466666666666667" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="17" project-jdk-type="JavaSDK" />
+</project>

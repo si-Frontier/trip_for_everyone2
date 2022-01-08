@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,19 +20,29 @@ import com.google.firebase.auth.FirebaseAuth;
  *
  */
 public class NavigationFragment2 extends Fragment {
-    TextView mypage_etc;
-    TextView mypage_service_guide;
-    TextView mypage_account;
-    TextView myapge_app_setting;
-    ImageView member_image;
-    TextView member_res_text;
-    TextView member_name_text;
-    Button profile_edit_button;
+    TextView schedule_text;
+    TextView alarm_text;
+    ImageView mypage_line;
+    TextView bookmark_text;
+    TextView course_text;
     Button mypage_logout_button;
-    Button course_text;
-    Button alarm;
-    Button myreview_text;
-    Button bookmark_text;
+    ImageButton course_button;
+    ImageView mypage_image;
+    ImageView residence_image;
+    ImageButton profile_edit_button;
+    TextView member_name_text;
+    ImageButton bookmark_button;
+    ImageButton schedule_button;
+    ImageButton alarm_button;
+    TextView mypage_etc_text;
+    TextView mypage_account_text;
+    TextView mypage_setting_text;
+    TextView mypage_announcement_text;
+    Button mypage_account_button;
+    Button mypage_setting_button;
+    Button mypage_announcement_button;
+    Button mypage_etc_button;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,20 +89,28 @@ public class NavigationFragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_navigation2, container, false);
-        mypage_etc = (TextView)view.findViewById(R.id.mypage_etc);
-        mypage_service_guide = (TextView)view.findViewById(R.id.mypage_service_guide);
-        mypage_account = (TextView)view.findViewById(R.id.mypage_account);
-        myapge_app_setting = (TextView)view.findViewById(R.id.myapge_app_setting);
-        profile_edit_button = (Button)view.findViewById(R.id.profile_edit_button);
-        member_image = (ImageView)view.findViewById(R.id.member_image);
-        member_res_text = (TextView)view.findViewById(R.id.member_res_text);
+        schedule_text = (TextView)view.findViewById(R.id.schedule_text);
+        alarm_text = (TextView)view.findViewById(R.id.alarm_text);
+        mypage_line = (ImageView)view.findViewById(R.id.mypage_line);
+        bookmark_text = (TextView)view.findViewById(R.id.bookmark_text);
+        course_text = (TextView)view.findViewById(R.id.course_text);
+        mypage_logout_button = (Button)view.findViewById(R.id.mypage_logout_button);
+        course_button = (ImageButton)view.findViewById(R.id.course_button);
+        mypage_image = (ImageView)view.findViewById(R.id.mypage_image);
+        residence_image = (ImageView)view.findViewById(R.id.residence_image);
+        profile_edit_button = (ImageButton)view.findViewById(R.id.profile_edit_button);
         member_name_text = (TextView)view.findViewById(R.id.member_name_text);
-        profile_edit_button = (Button) view.findViewById(R.id.profile_edit_button);
-        mypage_logout_button = (Button) view.findViewById(R.id.mypage_logout_button);
-        course_text = (Button) view.findViewById(R.id.course_text);
-        alarm = (Button) view.findViewById(R.id.alarm);
-        myreview_text = (Button) view.findViewById(R.id.myreview_text);
-        bookmark_text = (Button) view.findViewById(R.id.bookmark_text);
+        bookmark_button = (ImageButton)view.findViewById(R.id.bookmark_button);
+        schedule_button = (ImageButton)view.findViewById(R.id.schedule_button);
+        alarm_button = (ImageButton)view.findViewById(R.id.alarm_button);
+        mypage_etc_text = (TextView)view.findViewById(R.id.mypage_etc_text);
+        mypage_account_text = (TextView)view.findViewById(R.id.mypage_account_text);
+        mypage_setting_text = (TextView)view.findViewById(R.id.mypage_setting_text);
+        mypage_announcement_text = (TextView)view.findViewById(R.id.mypage_announcement_text);
+        mypage_account_button = (Button)view.findViewById(R.id.mypage_account_button);
+        mypage_setting_button = (Button)view.findViewById(R.id.mypage_setting_button);
+        mypage_announcement_button = (Button)view.findViewById(R.id.mypage_announcement_button);
+        mypage_etc_button = (Button)view.findViewById(R.id.mypage_etc_button);
 
 
 

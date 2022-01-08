@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/schedule_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="  일정관리"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.448" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/alarm_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="알람"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.448" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/mypage_line"
         android:layout_width="wrap_content"
         android:layout_height="1sp"
         android:src="@drawable/line"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/bookmark_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="즐겨찾기"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.448" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/course_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="코스선택"
@@ -83,19 +83,21 @@
 
 
     <ImageButton
+        android:id="@+id/course_button"
         android:layout_width="48dp"
         android:layout_height="50dp"
+        android:layout_marginStart="136dp"
         android:background="@drawable/mypage_course_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView13"
         app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.356"
+        app:layout_constraintVertical_bias="0.358"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/mypage_image"
         android:layout_width="97dp"
         android:layout_height="98dp"
         android:layout_marginTop="35sp"
@@ -109,7 +111,7 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/residence_image"
         android:layout_width="136dp"
         android:layout_height="33dp"
         android:layout_marginTop="30sp"
@@ -122,6 +124,7 @@
         app:layout_constraintVertical_bias="0.175" />
 
     <ImageButton
+        android:id="@+id/profile_edit_button"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:background="@drawable/mypage_edit"
@@ -154,32 +157,33 @@
 
 
     <ImageButton
+        android:id="@+id/bookmark_button"
         android:layout_width="49dp"
         android:layout_height="38dp"
         android:background="@drawable/mypage_bookmark_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView13"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37"
+        app:layout_constraintVertical_bias="0.369"
         tools:ignore="MissingConstraints" />
 
-
     <ImageButton
+        android:id="@+id/schedule_button"
         android:layout_width="50dp"
         android:layout_height="35dp"
         android:background="@drawable/mypage_schedule_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView13"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372"
+        app:layout_constraintVertical_bias="0.367"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageView12"
+        android:id="@+id/alarm_button"
         android:layout_width="42dp"
         android:layout_height="43dp"
         android:background="@drawable/mypage_alarm_drawable"
@@ -191,7 +195,7 @@
         app:layout_constraintVertical_bias="0.362" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/mypage_etc_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="기타"
@@ -204,7 +208,7 @@
         app:layout_constraintVertical_bias="0.846" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/mypage_account_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="계정"
@@ -217,7 +221,7 @@
         app:layout_constraintVertical_bias="0.575" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/mypage_setting_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="앱 설정"
@@ -230,7 +234,7 @@
         app:layout_constraintVertical_bias="0.665" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/mypage_announcement_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이용 안내"
@@ -243,7 +247,7 @@
         app:layout_constraintVertical_bias="0.754" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/mypage_account_button"
         android:layout_width="18dp"
         android:layout_height="24dp"
         android:background="@drawable/arrow"
@@ -255,7 +259,7 @@
         app:layout_constraintVertical_bias="0.58" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/mypage_setting_button"
         android:layout_width="18dp"
         android:layout_height="24dp"
         android:background="@drawable/arrow"
@@ -267,7 +271,7 @@
         app:layout_constraintVertical_bias="0.665" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/mypage_announcement_button"
         android:layout_width="18dp"
         android:layout_height="24dp"
         android:background="@drawable/arrow"
@@ -279,7 +283,7 @@
         app:layout_constraintVertical_bias="0.753" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/mypage_etc_button"
         android:layout_width="18dp"
         android:layout_height="24dp"
         android:background="@drawable/arrow"
