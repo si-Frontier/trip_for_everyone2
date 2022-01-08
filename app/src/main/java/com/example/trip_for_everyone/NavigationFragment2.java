@@ -223,6 +223,47 @@ public class NavigationFragment2 extends Fragment {
                 startActivity(intent);
             }
         });
+
+        mypage_account_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), mypage_account.class);
+                startActivity(intent);
+            }
+        });
+
+        mypage_setting_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), mypage_setting.class);
+                startActivity(intent);
+            }
+        });
+
+        mypage_announcement_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), mypage_announcement.class);
+                startActivity(intent);
+            }
+        });
+
+        mypage_etc_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), mypage_etc.class);
+                startActivity(intent);
+            }
+        });
+
+        profile_edit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), profile_edit.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
