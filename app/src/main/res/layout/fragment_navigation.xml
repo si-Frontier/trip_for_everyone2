@@ -35,4 +35,5 @@
         android:text="여행지 눌렀을떄"
         android:id="@+id/tmpInfoBtn"/>
 
+
 </androidx.appcompat.widget.LinearLayoutCompat>

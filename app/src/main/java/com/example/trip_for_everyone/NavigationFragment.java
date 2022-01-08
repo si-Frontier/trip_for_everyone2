@@ -131,6 +131,9 @@ public class NavigationFragment extends Fragment {
         });
         //////////////////여기
 
+
+
+
         return view;
     }
 }

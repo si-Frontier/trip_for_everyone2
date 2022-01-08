@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ import java.util.Locale;
 
 public class Local_check extends AppCompatActivity{
 
-    private Button local;
+    private ImageButton local;
     private TextView textView1;
     private GpsTracker gpsTracker;
 
@@ -48,7 +49,7 @@ public class Local_check extends AppCompatActivity{
         } else {
             showDialogForLocationServiceSetting();
         }
-        local = (Button)findViewById(R.id.local);
+        local = (ImageButton) findViewById(R.id.local);
         textView1 = (TextView)findViewById(R.id.textView1);
 
         local.setOnClickListener(new View.OnClickListener() {
