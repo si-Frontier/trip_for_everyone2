@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone">
         <activity
+            android:name=".mypage_alarm"
+            android:exported="false" />
+        <activity
             android:name=".profile_edit"
             android:exported="false" />
         <activity

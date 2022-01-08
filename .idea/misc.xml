@@ -6,6 +6,7 @@
         <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_bookmark_drawable.xml" value="0.21197916666666666" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/drawable/mypage_course_drawable.xml" value="0.20833333333333334" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_mypage_account.xml" value="0.1921875" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_mypage_alarm.xml" value="0.3333333333333333" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_mypage_announcement.xml" value="0.17760416666666667" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_mypage_etc.xml" value="0.1921875" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_mypage_main.xml" value="0.19583333333333333" />
@@ -15,7 +16,7 @@
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_register.xml" value="0.1921875" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_service_guide.xml" value="0.4466666666666667" />
         <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/activity_write_review.xml" value="0.1921875" />
-        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.3333333333333333" />
+        <entry key="..\:/trip_for_everyone2/app/src/main/res/layout/fragment_navigation2.xml" value="0.5" />
       </map>
     </option>
   </component>

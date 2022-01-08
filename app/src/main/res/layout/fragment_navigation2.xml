@@ -294,6 +294,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.846" />
 
+    <ImageView
+        android:id="@+id/alarm_point"
+        android:layout_width="12dp"
+        android:layout_height="9dp"
+        android:src="@drawable/red_point"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mypage_line"
+        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     <!--<?xml version="1.0" encoding="utf-8"?>-->

@@ -62,6 +62,7 @@ public class NavigationFragment2 extends Fragment {
     Button mypage_setting_button;
     Button mypage_announcement_button;
     Button mypage_etc_button;
+    ImageView alarm_point;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -136,7 +137,7 @@ public class NavigationFragment2 extends Fragment {
         mypage_setting_button = (Button)view.findViewById(R.id.mypage_setting_button);
         mypage_announcement_button = (Button)view.findViewById(R.id.mypage_announcement_button);
         mypage_etc_button = (Button)view.findViewById(R.id.mypage_etc_button);
-
+        alarm_point = (ImageView)view.findViewById(R.id.alarm_point);
 
 
 
@@ -260,6 +261,14 @@ public class NavigationFragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), profile_edit.class);
+                startActivity(intent);
+            }
+        });
+
+        alarm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), mypage_alarm.class);
                 startActivity(intent);
             }
         });
