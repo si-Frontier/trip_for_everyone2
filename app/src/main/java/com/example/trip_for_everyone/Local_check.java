@@ -173,11 +173,14 @@ public class Local_check extends AppCompatActivity{
 
         List<Address> addresses;
 
+
+
+
         try{
             addresses = geocoder.getFromLocation(
                     latiude,
                     longitude,
-                    7);
+                    1); //7
 
         }catch (IOException ioException){
             //네트워크 문제
@@ -194,7 +197,7 @@ public class Local_check extends AppCompatActivity{
         }
 
         Address address = addresses.get(0);
-        return address.getAddressLine(0).toString()+"\n";
+        return address.getThoroughfare();
     }
 
 

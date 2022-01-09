@@ -30,7 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-
+import org.w3c.dom.Text;
 
 
 /**
@@ -63,6 +63,7 @@ public class NavigationFragment2 extends Fragment {
     Button mypage_announcement_button;
     Button mypage_etc_button;
     ImageView alarm_point;
+    TextView address_text_view;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -74,6 +75,7 @@ public class NavigationFragment2 extends Fragment {
     private String mParam1;
     private String mParam2;
     private String name;
+    private String address;
     private DatabaseReference mDatabase;
 
     /**
@@ -117,6 +119,7 @@ public class NavigationFragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_navigation2, container, false);
         schedule_text = (TextView)view.findViewById(R.id.schedule_text);
         alarm_text = (TextView)view.findViewById(R.id.alarm_text);
+        address_text_view = (TextView)view.findViewById(R.id.addressTextView);
         mypage_line = (ImageView)view.findViewById(R.id.mypage_line);
         bookmark_text = (TextView)view.findViewById(R.id.bookmark_text);
         course_text = (TextView)view.findViewById(R.id.course_text);
@@ -213,6 +216,20 @@ public class NavigationFragment2 extends Fragment {
 
 
           //  String name = getArguments().getString("name");
+
+        mDatabase.child("users").child(uid).child("address").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                address = snapshot.getValue(String.class);
+                System.out.println("faddress"+ address);
+                address_text_view.setText(address);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
