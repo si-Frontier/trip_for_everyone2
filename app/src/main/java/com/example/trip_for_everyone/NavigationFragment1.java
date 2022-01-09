@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+
+import net.daum.mf.map.api.MapView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,13 +65,9 @@ public class NavigationFragment1 extends Fragment {
 
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_navigation1, container, false);
-        //Button button = rootView.findViewById(R.id.but);
-       /* button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
-            }
-        });*/
+        MapView mapView = new MapView(getActivity());
+        ViewGroup mapViewContainer = (ViewGroup) rootView.findViewById(R.id.mapView);
+        mapViewContainer.addView(mapView);
         return rootView;
     }
 }
