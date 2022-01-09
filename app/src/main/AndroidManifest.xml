@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone" >
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="169eeaaac2581b6515897bd52a5c2ee8"/>
         <activity
             android:name=".WriteReviewActivity"
             android:exported="false" />
