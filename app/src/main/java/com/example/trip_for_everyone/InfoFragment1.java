@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,7 +33,18 @@ public class InfoFragment1 extends Fragment {
     private String mParam2;
 
     private DatabaseReference mDatabase;
-    private String Address;
+
+    private String spotAddress;
+    private String time;
+    private String closedDay;
+    private String admission;
+    private String parking;
+
+    private String toilet;
+    private String rental;
+    private String amenities;
+    private String DisabledToilet;
+    private String DisabledParking;
 
     public InfoFragment1() {
         // Required empty public constructor
@@ -75,28 +84,50 @@ public class InfoFragment1 extends Fragment {
 
         // Inflate the layout for this fragment
         TextView spotAddressTv = view.findViewById(R.id.info_address_textView);
+        TextView timeTv = view.findViewById(R.id.info_time_textView);
+        TextView closedDayTv = view.findViewById(R.id.info_closed_day_textView);
+        TextView admissionTv = view.findViewById(R.id.info_admission_textView);
+        TextView parkingTv = view.findViewById(R.id. info_parking_textView);
+
+        TextView toiletTv = view.findViewById(R.id.info_toilet_textView);
+        TextView rentalTv = view.findViewById(R.id.info_rental_textView);
+        TextView amenitiesTv = view.findViewById(R.id. info_amenities_textView);
+        TextView DisabledToiletTv = view.findViewById(R.id. info_Disabled_toilet_textView);
+        TextView DisabledParkingTv = view.findViewById(R.id. info_Disabled_parking_textView);
 
 
 
-        Bundle bundle = getArguments();  //번들 받기. getArguments() 메소드로 받음.
-
+        //번들 받기. getArguments() 메소드로 받음.
+        Bundle bundle = getArguments();
         if(bundle != null) {
             String spotName = bundle.getString("spotName"); //Name 받기.
-            // System.out.println(Name); //확인
-
-
-            // String spotName = getArguments().getString("spotName");
             System.out.println("info / spotname : :::" + spotName);
 
+
+            //데이터 베이스 읽기
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("basicInfo").child(spotName).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    basicInfo group = dataSnapshot.getValue(basicInfo.class);
-                    Address = group.get주소();
-                    System.out.println("infofragment1" + Address);
-                    spotAddressTv.setText(Address);
+                    BasicInfo group = dataSnapshot.getValue(BasicInfo.class);
+                   //주소 읽기
+                    spotAddress = group.get주소();
+                    spotAddressTv.setText(spotAddress);
+                    //이용시간
+                    time= group.get이용시간();
+                    timeTv.setText(time);
+                    //휴무일
+                    closedDay= group.get휴무일();
+                    closedDayTv.setText(closedDay);
+                    System.out.println(closedDay);
+                    //이용요금
+                    admission=group.get이용요금();
+                    if(admission.equals("이용요금"))
+                        admission="없음";
+                    admissionTv.setText(admission);
+                    System.out.println(admission);
+
                 }
 
                 @Override

@@ -56,18 +56,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
-                android:textSize="@dimen/medium_font_size"
+                android:textSize="18sp"
                 android:text="sample address"
                 android:id="@+id/spotAddress"
                 android:gravity="start"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
-                android:textSize="@dimen/big_font_size"
+                android:textSize="36sp"
                 android:text="sample name"
                 android:id="@+id/spotName"
                 android:gravity="start"/>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
