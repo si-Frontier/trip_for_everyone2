@@ -77,14 +77,22 @@ public class NavigationFragment extends Fragment {
         final int pageLimit = 5;
         viewPager2 = (ViewPager2)view.findViewById(R.id.viewPager);
         /////////////////tmp///////////////
+
+        //여행지 클릭시 여행지 이름 인텐트에 담기
+
+      //  Intent travelName = new Intent(getContext(), InfoActivity.class);
         Button tmpButton = view.findViewById(R.id.tmpInfoBtn);
         tmpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent tmpintent = new Intent(getContext(), InfoActivity.class);
+                tmpintent.putExtra("spotName",  tmpButton.getText());
                 startActivity(tmpintent);
+
+
             }
         });
+
         ////////////////////지울거////////////////
         ArrayList<String> path = new ArrayList<>();     //추천할 여행지를여기에 추가하면 됨
         path.add("test/seoulTower.png");

@@ -100,30 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // 사용자 이름가져오기 ( 딜레이 문제 )
         /*
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String uid = user.getUid();
-            System.out.println(uid);
-            mDatabase.child("users").child(uid).child("userName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Log.e("firebase", "Error getting data", task.getException());
-                    }
-                    else {
-                       // name  = String.valueOf(task.getResult().getValue());
-                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                    }
-                }
-
-            });
-
-            */
-
-
 
             // 데이터베이스 읽기 #2. Single ValueEventListener
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -143,13 +120,12 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-
-
-
             Bundle bundle = new Bundle();
             bundle.putString("name", name);
             System.out.println(name);
             navigationFragment2.setArguments(bundle);
+*/
+
         }
     private void getHashKey(){
         PackageInfo packageInfo = null;
@@ -171,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 
 
     }
