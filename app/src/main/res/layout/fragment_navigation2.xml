@@ -89,11 +89,11 @@
         android:layout_marginStart="136dp"
         android:background="@drawable/mypage_course_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView13"
-        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
+        app:layout_constraintVertical_bias="0.353"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -112,10 +112,10 @@
 
     <ImageView
         android:id="@+id/residence_image"
-        android:layout_width="136dp"
-        android:layout_height="33dp"
+        android:layout_width="139dp"
+        android:layout_height="41dp"
         android:layout_marginTop="30sp"
-        android:src="@drawable/mypage_logout_location"
+        android:src="@drawable/mypage_location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
@@ -166,7 +166,7 @@
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369"
+        app:layout_constraintVertical_bias="0.365"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -313,10 +313,10 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/residence_image"
         app:layout_constraintEnd_toEndOf="@+id/residence_image"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.641"
         app:layout_constraintStart_toStartOf="@+id/residence_image"
         app:layout_constraintTop_toBottomOf="@+id/member_name_text"
-        app:layout_constraintVertical_bias="0.901" />
+        app:layout_constraintVertical_bias="0.793" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
