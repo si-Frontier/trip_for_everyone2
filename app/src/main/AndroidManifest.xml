@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.trip_for_everyone" >
+    package="com.example.trip_for_everyone">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="wonpa.alwaysweb.com.myloctest.permission.MAPS_RECEIVE" />
@@ -15,7 +15,33 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Trip_for_everyone" >
+        android:theme="@style/Theme.Trip_for_everyone">
+        <activity
+            android:name=".BookmarkPage"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="169eeaaac2581b6515897bd52a5c2ee8" />
+
+        <activity
+            android:name=".mypage_alarm"
+            android:exported="false" />
+        <activity
+            android:name=".profile_edit"
+            android:exported="false" />
+        <activity
+            android:name=".mypage_etc"
+            android:exported="false" />
+        <activity
+            android:name=".mypage_setting"
+            android:exported="false" />
+        <activity
+            android:name=".mypage_account"
+            android:exported="false" />
+        <activity
+            android:name=".mypage_announcement"
+            android:exported="false" />
         <activity
             android:name=".WriteReviewActivity"
             android:exported="false" />
@@ -47,7 +73,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
