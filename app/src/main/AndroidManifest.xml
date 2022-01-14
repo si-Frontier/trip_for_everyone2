@@ -71,11 +71,11 @@
         <activity
             android:name=".CardNewsActivity"
             android:exported="false" />
-        <activity android:name="com.example.trip_for_everyone.mypage_account"></activity>
-        <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>
-        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>
-        <activity android:name="com.example.trip_for_everyone.mypage_etc"></activity>
-        <activity android:name="com.example.trip_for_everyone.mypage_setting"></activity>
+<!--        <activity android:name="com.example.trip_for_everyone.mypage_account"></activity>-->
+<!--        <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>-->
+<!--        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>-->
+<!--        <activity android:name="com.example.trip_for_everyone.mypage_etc"></activity>-->
+<!--        <activity android:name="com.example.trip_for_everyone.mypage_setting"></activity>-->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
