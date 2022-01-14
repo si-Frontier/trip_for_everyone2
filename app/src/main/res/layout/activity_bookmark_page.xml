@@ -8,6 +8,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="50sp"
+        android:id="@+id/bookmark_toolbar"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
             android:layout_width="match_parent"
@@ -15,8 +16,19 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="@dimen/medium_font_size"
+            android:id="@+id/gyu1"
             android:text="즐겨찾기"/>
     </androidx.appcompat.widget.Toolbar>
-
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:columnCount="2">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bookmark_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/bookmark_toolbar"/>
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
