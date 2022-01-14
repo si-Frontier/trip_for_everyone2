@@ -42,7 +42,7 @@
             android:exported="false" />
         <activity
             android:name=".profile_edit"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".mypage_etc"
             android:exported="false" />
@@ -85,8 +85,8 @@
             android:name=".CardNewsActivity"
             android:exported="false" />
 <!--        <activity android:name="com.example.trip_for_everyone.mypage_account"></activity>-->
-<!--        <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>-->
-<!--        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>-->
+        <!-- <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>-->
+    <!--        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>-->
 <!--        <activity android:name="com.example.trip_for_everyone.mypage_etc"></activity>-->
 <!--        <activity android:name="com.example.trip_for_everyone.mypage_setting"></activity>-->
         <activity

@@ -288,8 +288,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
         new AlertDialog.Builder(this)
                 .setTitle("업로드할 이미지 선택")
-                .setPositiveButton("카메라선택", cameraListener)
-                .setNegativeButton("앨범선택", albumListener)
+                .setPositiveButton("앨범선택", albumListener)
                 .setNegativeButton("취소", cancelListener)
                 .show();
     }
