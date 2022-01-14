@@ -7,6 +7,10 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera2" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +20,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.trip_for_everyone"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <activity
             android:name=".BookmarkPage"
             android:exported="false" />
@@ -29,7 +42,7 @@
             android:exported="false" />
         <activity
             android:name=".profile_edit"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".mypage_etc"
             android:exported="false" />
@@ -72,8 +85,8 @@
             android:name=".CardNewsActivity"
             android:exported="false" />
 <!--        <activity android:name="com.example.trip_for_everyone.mypage_account"></activity>-->
-<!--        <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>-->
-<!--        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>-->
+        <!-- <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>-->
+    <!--        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>-->
 <!--        <activity android:name="com.example.trip_for_everyone.mypage_etc"></activity>-->
 <!--        <activity android:name="com.example.trip_for_everyone.mypage_setting"></activity>-->
         <activity
