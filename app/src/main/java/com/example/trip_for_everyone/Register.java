@@ -270,47 +270,51 @@ public class Register extends AppCompatActivity {
 
         if(id.length()>0&& password.length()>0&& passwordCheck.length()>0){
             if(password.equals(passwordCheck)) {
-                if (ch2.isChecked() && ch3.isChecked()) {
-                    mAuth.createUserWithEmailAndPassword(id, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                final String uid = task.getResult().getUser().getUid();
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                //UserRegister userRegister = new UserRegister(name, address);
-                                //mDatauser.child("users").child(id).setValue(userRegister);
-                                user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        //요청 메일 전송이 완료되면 해당 매소드 발생
-                                        UserRegister userRegister = new UserRegister();
+                if(address != null) {
+                    if (ch2.isChecked() && ch3.isChecked()) {
+                        mAuth.createUserWithEmailAndPassword(id, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    final String uid = task.getResult().getUser().getUid();
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    //UserRegister userRegister = new UserRegister(name, address);
+                                    //mDatauser.child("users").child(id).setValue(userRegister);
+                                    user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            //요청 메일 전송이 완료되면 해당 매소드 발생
+                                            UserRegister userRegister = new UserRegister();
 
-                                        userRegister.userName = name;
-                                        userRegister.uid = uid;
-                                        userRegister.address = address;
+                                            userRegister.userName = name;
+                                            userRegister.uid = uid;
+                                            userRegister.address = address;
 
-                                        //database 저장
-                                        mDatabase.getReference().child("users").child(uid).setValue(userRegister);
-                                        Toast.makeText(Register.this, "메일발송완료!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                        startActivity(intent);
+                                            //database 저장
+                                            mDatabase.getReference().child("users").child(uid).setValue(userRegister);
+                                            Toast.makeText(Register.this, "메일발송완료!", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                            startActivity(intent);
 
+                                        }
+                                    });
+                                    Toast.makeText(Register.this, "회원가입 성공했습니다", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    if (task.getException().toString() != null) {
+                                        Toast.makeText(Register.this, "회원가입 실패했습니다.", Toast.LENGTH_SHORT).show();
                                     }
-                                });
-                                Toast.makeText(Register.this, "회원가입 성공했습니다", Toast.LENGTH_SHORT).show();
-                            } else {
-                                if (task.getException().toString() != null) {
-                                    Toast.makeText(Register.this, "회원가입 실패했습니다.", Toast.LENGTH_SHORT).show();
                                 }
+
+
                             }
+                        });
 
-
-                        }
-                    });
-
+                    } else {
+                        Toast.makeText(Register.this, "약관 동의를 해주세요.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else{
-                    Toast.makeText(Register.this, "약관 동의를 해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "지역 인증을 해주세요!", Toast.LENGTH_SHORT).show();
                 }
             }
             else{

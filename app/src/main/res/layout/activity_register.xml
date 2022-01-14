@@ -163,7 +163,7 @@
                 app:layout_constraintHorizontal_bias="0.131"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/user_name_text"
-                app:layout_constraintVertical_bias="0.211" />
+                app:layout_constraintVertical_bias="0.226" />
 
             <TextView
                 android:id="@+id/passwordcheck"
@@ -200,8 +200,8 @@
 
             <ImageButton
                 android:id="@+id/local_check"
-                android:layout_width="130dp"
-                android:layout_height="32dp"
+                android:layout_width="142dp"
+                android:layout_height="54dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
