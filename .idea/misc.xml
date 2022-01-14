@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/activity_bookmark_page.xml" value="0.14375" />
+        <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/activity_info.xml" value="0.1" />
+        <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/fragment_navigation.xml" value="0.1" />
+        <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/fragment_navigation1.xml" value="0.264" />
+        <entry key="..\:/Users/qkrtj/AndroidStudioProjects/trip_for_everyone/app/src/main/res/layout/fragment_navigation2.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
