@@ -1,12 +1,14 @@
 package com.example.trip_for_everyone;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -15,10 +17,14 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class InfoActivity extends AppCompatActivity {
@@ -30,12 +36,16 @@ public class InfoActivity extends AppCompatActivity {
     private InfoFragment3 infoFragment3 = new InfoFragment3();
     private DatabaseReference mDatabase;
     private String Address;
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        isBookmarked = false;
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.info_fragment,infoFragment1).commitAllowingStateLoss();
@@ -51,13 +61,43 @@ public class InfoActivity extends AppCompatActivity {
         //System.out.println("spot name "+ spotName);
         spotNameTv.setText(spotName);
 
+        //북마크 판단
+        mDatabase.child("users").child(uid).child("bookmark").orderByValue().equalTo(spotName).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                isBookmarked = true;
+                bookmark.setColorFilter(getResources().getColor(R.color.real_yellow));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                isBookmarked = false;
+                bookmark.setColorFilter(getResources().getColor(R.color.black));
+            }
+        });
+
         //InfoFragment1 에 spotName 보내기
         Bundle bundle = new Bundle();
         bundle.putString("spotName", spotName);
         infoFragment1.setArguments(bundle);
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+
        // FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 mDatabase.child("basicInfo").child(spotName).addValueEventListener(new ValueEventListener() {
@@ -131,10 +171,24 @@ public class InfoActivity extends AppCompatActivity {
                 if(isBookmarked){
                     bookmark.setColorFilter(getResources().getColor(R.color.black));
                     //  mDatabase.child("place").child("맥도날드")./*장소 받아오기*/child("bookmark").child(uid);
+                    mDatabase.child("users").child(uid).child("bookmark").orderByValue().equalTo(spotName).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot child : snapshot.getChildren()){
+                               child.getRef().removeValue();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                     isBookmarked = false;
                 }
                 else {
                     isBookmarked = true;
+                    mDatabase.child("users").child(uid).child("bookmark").push().setValue(spotName);
                     bookmark.setColorFilter(getResources().getColor(R.color.real_yellow));
                 }
             }
