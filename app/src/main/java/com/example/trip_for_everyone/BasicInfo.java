@@ -10,6 +10,8 @@ public class BasicInfo {
     private String 이용요금;
     private String 전화번호;
     private String 휴무일;
+    private String latitude;
+    private String longitude;
 
 
     public BasicInfo() {
@@ -76,4 +78,19 @@ public class BasicInfo {
         this.휴무일  = 휴무일;
     }
 
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 }

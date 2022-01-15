@@ -1,15 +1,37 @@
 package com.example.trip_for_everyone;
 
+import android.location.Address;
+import android.location.Geocoder;
+import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import net.daum.mf.map.api.MapPOIItem;
+import net.daum.mf.map.api.MapPoint;
+import net.daum.mf.map.api.MapReverseGeoCoder;
 import net.daum.mf.map.api.MapView;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,10 +86,97 @@ public class NavigationFragment1 extends Fragment {
 
 
         // Inflate the layout for this fragment
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_navigation1, container, false);
+//        init(mDatabase);
+        EditText searchEditText = rootView.findViewById(R.id.searchEditText);
+        ImageButton imgButton = rootView.findViewById(R.id.NF1_search_button);
+
+        Log.d("asdf","asdf");
         MapView mapView = new MapView(getActivity());
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String keyword = searchEditText.getText().toString();
+                if(!keyword.isEmpty()){
+                    Data data = search(keyword);
+                    if(data==null){Log.e("null","search 실패");}
+                    else {
+                        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(data.lat, data.lon);
+                        MapPOIItem marker = new MapPOIItem();
+                        marker.setItemName("Default Marker");
+                        marker.setTag(0);
+
+                        mapView.setMapCenterPoint(mapPoint, true);
+                        marker.setMapPoint(mapPoint);
+                        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+                        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+
+                        mapView.addPOIItem(marker);
+                    }
+                }
+                else{
+                    //아무것도 입력 안하면?
+                }
+            }
+        });
+
         ViewGroup mapViewContainer = (ViewGroup) rootView.findViewById(R.id.mapView);
         mapViewContainer.addView(mapView);
+
+
         return rootView;
+    }
+//    private void init(DatabaseReference mDatabase){
+//        mDatabase.child("basicInfo").orderByChild("basicInfo").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot data : snapshot.getChildren()){
+//                    String key = data.child("주소").toString();
+//                    Data tmp = search(key);
+//                    if(tmp==null){ Log.e("gyu","searchFail");}
+//                    else {
+//                        data.getRef().child("latitude").setValue(tmp.lat);
+//                        data.getRef().child("longitude").setValue(tmp.lon);
+//                    }
+//                    Log.d("key",key+"end");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                    Log.d("data",error.toString());
+//            }
+//        });
+//    }
+    private static class Data{
+        double lat;
+        double lon;
+        public Data(double lat, double lon){
+            this.lat = lat; this.lon = lon;
+        }
+    }
+    private Data search(String keyword){
+        Geocoder geocoder = new Geocoder(getActivity());
+        List<Address> list = null;
+        try {
+            list = geocoder.getFromLocationName( keyword, 5);
+        } catch(IOException e){
+            e.printStackTrace();
+
+        }
+        if(list==null || list.size()==0) {
+            Log.e("fail","list is null");
+            return null;
+        }
+        else {
+            Log.d("success", list.get(0).toString());
+
+            Log.e("success",list.get(0).getLongitude()+" ");
+            Log.e("success",list.get(0).getLatitude()+" ");
+            return new Data(list.get(0).getLatitude(), list.get(0).getLongitude());
+        }
     }
 }
