@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,8 +35,10 @@ public class WriteReviewActivity extends AppCompatActivity {
     private String uid;
     private String content;
     private String name;
+    private int star;
     private EditText editContent;
     private TextView spotNameTv;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class WriteReviewActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         editContent =findViewById(R.id.content);
         spotNameTv = findViewById(R.id.spotName);
+        ratingBar = findViewById(R.id.ratingBar);
+
 
         //여행지 이름 Info Acitivy에서 인텐트로 받아오기
         Intent intent = getIntent();
@@ -61,6 +66,9 @@ public class WriteReviewActivity extends AppCompatActivity {
 
                 // content 받아오기
                 content = editContent.getText().toString();
+
+                // 리뷰 별 개수 받아오기
+                star = ratingBar.getNumStars();
 
                 // 로그인하지 않았을 때 경고창
                 if(user == null)
@@ -98,8 +106,8 @@ public class WriteReviewActivity extends AppCompatActivity {
                     });
 
                     //데이터 베이스 쓰기
-                    info_review review = new info_review(uid,name,content,System.currentTimeMillis());
-                    mDatabase.child("review")/*.child(spotName)*/.child(uid+System.currentTimeMillis())./*장소 받아오기*/setValue(review);
+                    info_review review = new info_review(uid,name,content,System.currentTimeMillis(),star);
+                    mDatabase.child("review").child(spotName).child(uid).setValue(review);
                 }
 
 
@@ -117,17 +125,19 @@ public class WriteReviewActivity extends AppCompatActivity {
         public String uid;
         public String content;
         public String name;
+        public int star;
         public long nowTime;
 
         public info_review() {
             // Default constructor
         }
 
-        public info_review(String uid, String name, String content,long nowTime) {
+        public info_review(String uid, String name, String content,long nowTime ,int star) {
             this.uid = uid;
             this.content = content;
             this.name = name;
             this.nowTime = nowTime;
+            this.star = star;
         }
     }
 
