@@ -95,7 +95,7 @@ public class NavigationFragment extends Fragment {
 
         ////////////////////지울거////////////////
         ArrayList<String> path = new ArrayList<>();     //추천할 여행지를여기에 추가하면 됨
-        path.add("test/seoulTower.png");
+        path.add("spot/블록시티");
         path.add("test/palace.png");
         path.add("test/ic_logo.png");
 

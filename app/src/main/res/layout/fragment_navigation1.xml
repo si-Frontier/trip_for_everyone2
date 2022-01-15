@@ -6,20 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".NavigationFragment1"
     android:orientation="vertical">
-        <TextView
+        <EditText
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="지도"
+            android:hint="검색어"
             android:gravity="center"
-            android:id="@+id/aaa"
+            android:id="@+id/searchEditText"
             android:textSize="@dimen/little_font_size"
             />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search"
+        android:id="@+id/NF1_search_button"
+        android:layout_toRightOf="@+id/searchEditText"/>
 
     <RelativeLayout
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_marginTop="100sp"
+        android:layout_height="500sp" />
         <!--<TextView
             android:id="@+id/textView2"
             android:layout_width="110dp"
