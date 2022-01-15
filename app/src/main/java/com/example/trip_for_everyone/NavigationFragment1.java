@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import net.daum.mf.map.api.MapView;
+//import net.daum.mf.map.api.MapView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,9 +65,9 @@ public class NavigationFragment1 extends Fragment {
 
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_navigation1, container, false);
-        MapView mapView = new MapView(getActivity());
-        ViewGroup mapViewContainer = (ViewGroup) rootView.findViewById(R.id.mapView);
-        mapViewContainer.addView(mapView);
+      //  MapView mapView = new MapView(getActivity());
+      //  ViewGroup mapViewContainer = (ViewGroup) rootView.findViewById(R.id.mapView);
+    //    mapViewContainer.addView(mapView);
         return rootView;
     }
 }

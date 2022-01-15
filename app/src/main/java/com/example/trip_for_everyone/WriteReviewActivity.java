@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +35,7 @@ public class WriteReviewActivity extends AppCompatActivity {
     private String content;
     private String name;
     private EditText editContent;
+    private TextView spotNameTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,12 @@ public class WriteReviewActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         button = findViewById(R.id.button);
         editContent =findViewById(R.id.content);
+        spotNameTv = findViewById(R.id.spotName);
+
+        //여행지 이름 Info Acitivy에서 인텐트로 받아오기
+        Intent intent = getIntent();
+        String spotName = intent.getStringExtra("spotName");
+        spotNameTv.setText(spotName);
 
         //리뷰 등록
         button.setOnClickListener(new View.OnClickListener(){
@@ -90,7 +99,7 @@ public class WriteReviewActivity extends AppCompatActivity {
 
                     //데이터 베이스 쓰기
                     info_review review = new info_review(uid,name,content,System.currentTimeMillis());
-                    mDatabase.child("review").child(uid+System.currentTimeMillis())./*장소 받아오기*/setValue(review);
+                    mDatabase.child("review")/*.child(spotName)*/.child(uid+System.currentTimeMillis())./*장소 받아오기*/setValue(review);
                 }
 
 
