@@ -31,7 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import net.daum.mf.map.api.MapView;
+//import net.daum.mf.map.api.MapView;
 
 import java.io.BufferedReader;
 import java.io.IOException;

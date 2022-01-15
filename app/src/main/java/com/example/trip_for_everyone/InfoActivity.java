@@ -40,6 +40,7 @@ public class InfoActivity extends AppCompatActivity {
     private InfoFragment1 infoFragment1 = new InfoFragment1();
     private InfoFragment2 infoFragment2 = new InfoFragment2();
     private InfoFragment3 infoFragment3 = new InfoFragment3();
+
     private DatabaseReference mDatabase;
     private String Address;
     private String uid;
@@ -63,10 +64,9 @@ public class InfoActivity extends AppCompatActivity {
         ImageButton bookmark = findViewById(R.id.info_bookmark);
         picture = findViewById(R.id.pictureViewer);
 
-        //여행지 이름 Info Acitivy에서 인텐트로 받아오기
+        //여행지 이름 네비게이션 프래그먼트1 에서 인텐트로 받아오기
         Intent intent = getIntent();
         String spotName = intent.getStringExtra("spotName");
-        //System.out.println("spot name "+ spotName);
         spotNameTv.setText(spotName);
         FirebaseStorage.getInstance().getReference().child("spot/"+spotName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -111,14 +111,10 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        //InfoFragment1 에 spotName 보내기
-        Bundle bundle = new Bundle();
-        bundle.putString("spotName", spotName);
-        infoFragment1.setArguments(bundle);
 
 
 
-       // FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        // FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 mDatabase.child("basicInfo").child(spotName).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -143,6 +139,11 @@ public class InfoActivity extends AppCompatActivity {
                 });
 
 
+        //InfoFragment1 에 spotName 보내기
+        Bundle bundle = new Bundle();
+        bundle.putString("spotName", spotName);
+        infoFragment1.setArguments(bundle);
+     //   infoFragment3.setArguments(bundle);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -175,7 +176,9 @@ public class InfoActivity extends AppCompatActivity {
                                 //    Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
                                 Intent intent = new Intent(getApplicationContext(), WriteReviewActivity.class);
-                               startActivity(intent);
+                                //writeReviewActivity 에 spotName 보내기
+                                intent.putExtra("spotName",  spotName);
+                                startActivity(intent);
 
                             }
                         });

@@ -28,7 +28,7 @@ public class NavigationFragment extends Fragment {
     StorageDownload download;
     CircleIndicator3 indicator;
 
-
+    private InfoFragment1 infoFragment1 = new InfoFragment1();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,7 +80,6 @@ public class NavigationFragment extends Fragment {
 
         //여행지 클릭시 여행지 이름 인텐트에 담기
 
-      //  Intent travelName = new Intent(getContext(), InfoActivity.class);
         Button tmpButton = view.findViewById(R.id.tmpInfoBtn);
         tmpButton.setOnClickListener(new View.OnClickListener() {
             @Override
