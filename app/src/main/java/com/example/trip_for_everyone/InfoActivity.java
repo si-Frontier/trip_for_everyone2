@@ -7,13 +7,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
@@ -26,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -37,6 +43,7 @@ public class InfoActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private String Address;
     private String uid;
+    private ImageView picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +61,25 @@ public class InfoActivity extends AppCompatActivity {
         TextView spotNameTv = findViewById(R.id.spotName);
         TextView spotAddressTv = findViewById(R.id.spotAddress);
         ImageButton bookmark = findViewById(R.id.info_bookmark);
+        picture = findViewById(R.id.pictureViewer);
 
         //여행지 이름 Info Acitivy에서 인텐트로 받아오기
         Intent intent = getIntent();
         String spotName = intent.getStringExtra("spotName");
         //System.out.println("spot name "+ spotName);
         spotNameTv.setText(spotName);
+        FirebaseStorage.getInstance().getReference().child("spot/"+spotName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getApplicationContext()).load(uri).into(picture);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("storageLoad","fail");
+            }
+        });
+
 
         //북마크 판단
         mDatabase.child("users").child(uid).child("bookmark").orderByValue().equalTo(spotName).addChildEventListener(new ChildEventListener() {

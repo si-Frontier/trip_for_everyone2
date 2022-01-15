@@ -45,6 +45,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:text="tmp"
                     android:id="@+id/info_bookmark"
                     android:layout_gravity="right|top"
