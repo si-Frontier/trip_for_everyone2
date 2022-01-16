@@ -1,13 +1,18 @@
 package com.example.trip_for_everyone;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +44,7 @@ public class InfoFragment1 extends Fragment {
     private String closedDay;
     private String admission;
     private String parking;
+    private Double lat,lon;
 
     private String toilet;
     private String rental;
@@ -95,6 +101,7 @@ public class InfoFragment1 extends Fragment {
         TextView DisabledToiletTv = view.findViewById(R.id. info_Disabled_toilet_textView);
         TextView DisabledParkingTv = view.findViewById(R.id. info_Disabled_parking_textView);
 
+        ImageButton mapButtuon = view.findViewById(R.id.info_map_button);
 
 
         //번들 받기. getArguments() 메소드로 받음.
@@ -128,6 +135,8 @@ public class InfoFragment1 extends Fragment {
                     admissionTv.setText(admission);
                     System.out.println(admission);
 
+                    lat = group.getLatitude();
+                    lon = group.getLongitude();
                 }
 
                 @Override
@@ -136,6 +145,18 @@ public class InfoFragment1 extends Fragment {
                 }
             });
         }
+
+        mapButtuon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(lat==null || lon==null) Log.e("null exception","cant find longitude or latitude");
+                else {
+                    String url = "kakaomap://look?p=" + lat.toString() + "," + lon.toString();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                }
+            }
+        });
 
         return view;
 
