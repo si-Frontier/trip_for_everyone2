@@ -38,12 +38,14 @@ import java.util.List;
  * Use the {@link NavigationFragment1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NavigationFragment1 extends Fragment {
+public class NavigationFragment1 extends Fragment implements MapView.MapViewEventListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    MapView mapView;
+    DatabaseReference mDatabase;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -87,7 +89,7 @@ public class NavigationFragment1 extends Fragment {
 
         // Inflate the layout for this fragment
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_navigation1, container, false);
 //        init(mDatabase);
@@ -95,7 +97,9 @@ public class NavigationFragment1 extends Fragment {
         ImageButton imgButton = rootView.findViewById(R.id.NF1_search_button);
 
         Log.d("asdf","asdf");
-        MapView mapView = new MapView(getActivity());
+        mapView = new MapView(getActivity());
+        mapView.setMapViewEventListener(this);
+
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,17 +108,13 @@ public class NavigationFragment1 extends Fragment {
                     Data data = search(keyword);
                     if(data==null){Log.e("null","search 실패");}
                     else {
-                        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(data.lat, data.lon);
-                        MapPOIItem marker = new MapPOIItem();
-                        marker.setItemName("Default Marker");
-                        marker.setTag(0);
-
-                        mapView.setMapCenterPoint(mapPoint, true);
-                        marker.setMapPoint(mapPoint);
-                        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
-                        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
-
-                        mapView.addPOIItem(marker);
+                        getMarker(data);
+                        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(data.lat,data.lon), true);
+//                        marker.setMapPoint(mapPoint);
+//                        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+//                        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+//
+//                        mapView.addPOIItem(marker);
                     }
                 }
                 else{
@@ -127,9 +127,98 @@ public class NavigationFragment1 extends Fragment {
         mapViewContainer.addView(mapView);
 
 
+
         return rootView;
     }
-//    private void init(DatabaseReference mDatabase){
+    private void getMarker(Data data){
+
+//                        MapPOIItem marker = new MapPOIItem();
+//                        marker.setItemName("Default Marker");
+//                        marker.setTag(0);
+        Log.d("move","success");
+
+        DatabaseReference spotRef = mDatabase.child("basicInfo");
+        spotRef.orderByChild("latitude").startAt(data.lat-0.0083).endAt(data.lat+0.0083).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot c : snapshot.getChildren()){
+                    String key = c.getKey();
+                    Log.d("key",c.toString());
+                    BasicInfo tmp = c.getValue(BasicInfo.class);
+                    if(tmp.getLongitude()>data.lon-0.016&&tmp.getLongitude()<data.lon+0.016){
+                        Log.d("spotList",c.toString());
+                        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(tmp.getLatitude(), tmp.getLongitude());
+
+                        MapPOIItem marker = new MapPOIItem();
+                        marker.setItemName(key);
+                        marker.setTag(0);
+
+                        marker.setMapPoint(mapPoint);
+                        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+                        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양
+                        mapView.addPOIItem(marker);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("order","noooooooooo");
+            }
+        });
+    }
+
+    @Override
+    public void onMapViewInitialized(MapView mapView) {
+
+    }
+
+    @Override
+    public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
+        Log.d("MapView","CenterMoved");
+//        mapView.removeAllPOIItems();
+//        getMarker(new Data(mapPoint.getMapPointGeoCoord().latitude,mapPoint.getMapPointGeoCoord().longitude));
+    }
+
+    @Override
+    public void onMapViewZoomLevelChanged(MapView mapView, int i) {
+        Log.d("MapView","ZoomChanged");
+    }
+
+    @Override
+    public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+        Log.d("MapView","SingleTapped");
+    }
+
+    @Override
+    public void onMapViewDoubleTapped(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewLongPressed(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewDragStarted(MapView mapView, MapPoint mapPoint) {
+        Log.d("MapView","DragStarted");
+    }
+
+    @Override
+    public void onMapViewDragEnded(MapView mapView, MapPoint mapPoint) {
+        Log.d("MapView","DragEnd");
+        mapView.removeAllPOIItems();
+        getMarker(new Data(mapPoint.getMapPointGeoCoord().latitude,mapPoint.getMapPointGeoCoord().longitude));
+    }
+
+    @Override
+    public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    //    private void init(DatabaseReference mDatabase){
 //        mDatabase.child("basicInfo").orderByChild("basicInfo").addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -151,7 +240,7 @@ public class NavigationFragment1 extends Fragment {
 //            }
 //        });
 //    }
-    private static class Data{
+    private static class Data{ //위도경도 저장하는 용도
         double lat;
         double lon;
         public Data(double lat, double lon){
