@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.http.HttpResponseCache;
@@ -38,7 +39,7 @@ import java.util.List;
  * Use the {@link NavigationFragment1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NavigationFragment1 extends Fragment implements MapView.MapViewEventListener{
+public class NavigationFragment1 extends Fragment implements MapView.MapViewEventListener , MapView.POIItemEventListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -99,6 +100,7 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
         Log.d("asdf","asdf");
         mapView = new MapView(getActivity());
         mapView.setMapViewEventListener(this);
+        mapView.setPOIItemEventListener(this);
 
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +170,7 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
             }
         });
     }
-
+//MapViewEvent 시작
     @Override
     public void onMapViewInitialized(MapView mapView) {
 
@@ -215,6 +217,30 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
 
     @Override
     public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
+
+    }
+//POI 시작
+    @Override
+    public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+        Log.d("POI","selected");
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
+        Log.d("POI","BallonTouched");
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
+        Log.d("POI","BallonTouched2");
+        String spotName = mapPOIItem.getItemName();
+        Intent intent = new Intent(getContext(), InfoActivity.class);
+        intent.putExtra("spotName",spotName);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {
 
     }
 

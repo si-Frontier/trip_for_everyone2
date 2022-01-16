@@ -101,7 +101,7 @@ public class InfoFragment1 extends Fragment {
         TextView DisabledToiletTv = view.findViewById(R.id. info_Disabled_toilet_textView);
         TextView DisabledParkingTv = view.findViewById(R.id. info_Disabled_parking_textView);
 
-        ImageButton mapButtuon = view.findViewById(R.id.info_map_button);
+        ImageButton mapButton = view.findViewById(R.id.info_map_button);
 
 
         //번들 받기. getArguments() 메소드로 받음.
@@ -145,8 +145,8 @@ public class InfoFragment1 extends Fragment {
                 }
             });
         }
-
-        mapButtuon.setOnClickListener(new View.OnClickListener() {
+/////////////////////////현재위치 가져와서 카카오맵 길찾기키기
+        mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(lat==null || lon==null) Log.e("null exception","cant find longitude or latitude");
