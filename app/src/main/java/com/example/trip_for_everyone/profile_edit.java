@@ -27,7 +27,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -46,8 +52,8 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     private FirebaseStorage storage;
 
 
-
-    private Uri mImageCaptureUri = null;
+    private DatabaseReference mDatabase;
+    //private Uri mImageCaptureUri = null;
     Uri albumURI, photoURI = null;
     Boolean album = false;
     private de.hdodenhof.circleimageview.CircleImageView mPhotoImageView;
@@ -245,17 +251,22 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
                     File albumFile = null;
                     photoURI = data.getData();
-                    Log.d(TAG, "Uri:" + String.valueOf(photoURI));
+                    //Log.d(TAG, "Uri:" + String.valueOf(photoURI));
                     try {
                         albumFile = createImageFile();
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mmss");
-                        Date now = new Date();
-                        String filename = formatter.format(now) + ".png";
-                        StorageReference storageRef = storage.getReference().child("images/"+filename);
+                        //SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mmss");
+                        //Date now = new Date();
+                       //String filename = formatter.format(now) + ".png";
+                        // addValueEventListener
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        String uid = user.getUid();
+                        mDatabase = FirebaseDatabase.getInstance().getReference();
+                        DatabaseReference fileUrl = mDatabase.child(uid);
+                        StorageReference storageRef = storage.getReference().child("images/"+"users/"+fileUrl);
                         storageRef.putFile(photoURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Toast.makeText(getApplicationContext(), "업로드 완료",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "업로드 완료",Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
