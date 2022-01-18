@@ -8,10 +8,18 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이미지 가져오기"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="519dp"
+        android:text="이미지 가져오기" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image"
@@ -19,8 +27,13 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="49dp" />
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="597dp" />
 
 </RelativeLayout>
