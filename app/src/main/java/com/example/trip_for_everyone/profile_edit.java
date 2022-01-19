@@ -4,6 +4,9 @@ import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.loader.content.CursorLoader;
 
 import android.accessibilityservice.GestureDescription;
@@ -20,6 +23,8 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -51,33 +56,98 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     private static final int CROP_FROM_CAMERA = 2;
     private FirebaseStorage storage;
 
+    private String name;
+    private String address;
 
+//    private int NavigationFragment2 = 1;
     private DatabaseReference mDatabase;
     //private Uri mImageCaptureUri = null;
     Uri albumURI, photoURI = null;
     Boolean album = false;
     private de.hdodenhof.circleimageview.CircleImageView mPhotoImageView;
-    private Button mButton;
+    private ImageButton mButton;
     String mCurrentPhotoPath;
 
+    private Button profile_edit_ok;
+    private TextView profile_name;
+    private TextView profile_address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
 
-        mButton = (Button) findViewById(R.id.button);
+        mButton = (ImageButton) findViewById(R.id.button);
         mPhotoImageView = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.image);
+        profile_name = (TextView) findViewById(R.id.profile_name);
+        profile_address = (TextView) findViewById(R.id.profile_address);
+        //profile_edit_ok = (Button)findViewById(R.id.profile_edit_ok);
 
         mButton.setOnClickListener(this);
+//        profile_edit_ok.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                replaceFragment(NavigationFragment2);
+//            }
+//        });
         storage = FirebaseStorage.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //DatabaseReference fileUrl = mDatabase.child(uid);
+        //StorageReference storageRef = storage.getReference(); //스토리지참고
 
         Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
         mPhotoImageView.setImageBitmap(bm);
 
 
+        mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name = dataSnapshot.getValue(String.class);
+                System.out.println("fname"+ name);
+                profile_name.setText(name);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+            }
+        });
+
+        mDatabase.child("users").child(uid).child("address").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                address = snapshot.getValue(String.class);
+                System.out.println("faddress"+ address);
+                profile_address.setText(address);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
+//    // 프레그 먼트로 이동
+//    public void replaceFragment(int fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        switch (fragment){
+//            case 1:
+//                Fra
+//        }
+//        fragmentTransaction.replace(R.id.container, );
+//        fragmentTransaction.commit();
+//    }
     /**
      * 카메라에서 이미지 가져오기
      */
@@ -271,7 +341,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "프로필이미지를 등록해주세요", Toast.LENGTH_SHORT).show();
                             }
                         });
 

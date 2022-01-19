@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,8 +33,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
+
+import java.io.File;
 
 
 /**
@@ -47,7 +55,7 @@ public class NavigationFragment2 extends Fragment {
     TextView course_text;
     Button mypage_logout_button;
     ImageButton course_button;
-    ImageView mypage_image;
+    de.hdodenhof.circleimageview.CircleImageView mypage_image;
     ImageView residence_image;
     ImageButton profile_edit_button;
     TextView member_name_text;
@@ -125,7 +133,7 @@ public class NavigationFragment2 extends Fragment {
         course_text = (TextView)view.findViewById(R.id.course_text);
         mypage_logout_button = (Button)view.findViewById(R.id.mypage_logout_button);
         course_button = (ImageButton)view.findViewById(R.id.course_button);
-        mypage_image = (ImageView)view.findViewById(R.id.mypage_image);
+        mypage_image = (de.hdodenhof.circleimageview.CircleImageView)view.findViewById(R.id.mypage_image);
         residence_image = (ImageView)view.findViewById(R.id.residence_image);
         profile_edit_button = (ImageButton)view.findViewById(R.id.profile_edit_button);
         member_name_text = (TextView)view.findViewById(R.id.member_name_text);
@@ -191,14 +199,44 @@ public class NavigationFragment2 extends Fragment {
 
             });
         }
+
 */
+
+
+
 
 
 
         // addValueEventListener
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
+
+
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference fileUrl = mDatabase.child(uid);
+        StorageReference storageRef = storage.getReference(); //스토리지참고
+        storageRef.child("images/"+"users/"+fileUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                //이미지 로드 성공시
+
+                Log.d("file",String.valueOf(uri));
+                Glide.with(getContext()).load(uri).into(mypage_image);
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                //이미지 로드 실패시
+                Toast.makeText(getContext(), "실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
         mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -298,8 +336,60 @@ public class NavigationFragment2 extends Fragment {
             }
         });
 
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//        StorageReference storageRef = storage.getReference();
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//        DatabaseReference fileUrl = mDatabase.child(uid);
+//        storageRef.child("images/"+"users/"+fileUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//            @Override
+//            public void onSuccess(Uri uri) {
+//                //이미지 로드 성공시
+//
+//
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception exception) {
+//                //이미지 로드 실패시
+//                Toast.makeText(getContext(), "실패", Toast.LENGTH_SHORT).show();
+//            }
+//        });
         return view;
     }
+
+//    private void getFireBaseProfileImage(int num){
+//        File file = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES+"/profile_img");
+//        if(!file.isDirectory()){
+//            file.mkdir();
+//        }
+//        downloadImage(num);
+//    }
+//
+//    private void downloadImage(int num){
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//        String uid = user.getUid();
+//        DatabaseReference fileUrl = mDatabase.child(uid);
+//        StorageReference storageRef = storage.getReference(); //스토리지참고
+//        storageRef.child("images/"+"users/"+fileUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//            @Override
+//            public void onSuccess(Uri uri) {
+//                //이미지 로드 성공시
+//
+//                Log.d("file",String.valueOf(uri));
+//                Glide.with(getContext()).load(uri).into(mypage_image);
+//
+//
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception exception) {
+//                //이미지 로드 실패시
+//                Toast.makeText(getContext(), "실패", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 }
 
 
