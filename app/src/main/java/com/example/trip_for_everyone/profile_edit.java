@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -55,6 +56,8 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     private static final int CROP_FROM_CAMERA = 2;
     private FirebaseStorage storage;
 
+    private String name;
+    private String address;
 
 //    private int NavigationFragment2 = 1;
     private DatabaseReference mDatabase;
@@ -66,6 +69,8 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     String mCurrentPhotoPath;
 
     private Button profile_edit_ok;
+    private TextView profile_name;
+    private TextView profile_address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +79,8 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
         mButton = (ImageButton) findViewById(R.id.button);
         mPhotoImageView = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.image);
+        profile_name = (TextView) findViewById(R.id.profile_name);
+        profile_address = (TextView) findViewById(R.id.profile_address);
         //profile_edit_ok = (Button)findViewById(R.id.profile_edit_ok);
 
         mButton.setOnClickListener(this);
@@ -84,9 +91,48 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 //            }
 //        });
         storage = FirebaseStorage.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //DatabaseReference fileUrl = mDatabase.child(uid);
+        //StorageReference storageRef = storage.getReference(); //스토리지참고
 
         Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
         mPhotoImageView.setImageBitmap(bm);
+
+
+        mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name = dataSnapshot.getValue(String.class);
+                System.out.println("fname"+ name);
+                profile_name.setText(name);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+            }
+        });
+
+        mDatabase.child("users").child(uid).child("address").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                address = snapshot.getValue(String.class);
+                System.out.println("faddress"+ address);
+                profile_address.setText(address);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
     }
@@ -295,7 +341,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "프로필이미지를 등록해주세요", Toast.LENGTH_SHORT).show();
                             }
                         });
 

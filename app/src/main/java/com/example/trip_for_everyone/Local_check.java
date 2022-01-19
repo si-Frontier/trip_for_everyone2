@@ -64,7 +64,8 @@ public class Local_check extends AppCompatActivity{
                 address = getCurrentAddress(latitude,longitude);
                 textView1.setText(address);
 
-                Toast.makeText(Local_check.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+               // Toast.makeText(Local_check.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+
 
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("address", address);
@@ -180,7 +181,7 @@ public class Local_check extends AppCompatActivity{
             addresses = geocoder.getFromLocation(
                     latiude,
                     longitude,
-                    1); //7
+                    7); //7
 
         }catch (IOException ioException){
             //네트워크 문제
@@ -197,7 +198,7 @@ public class Local_check extends AppCompatActivity{
         }
 
         Address address = addresses.get(0);
-        return address.getThoroughfare();
+        return address.getAdminArea();
     }
 
 
