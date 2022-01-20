@@ -78,7 +78,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_profile_edit);
 
         mButton = (ImageButton) findViewById(R.id.button);
-        mPhotoImageView = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.image);
+        mPhotoImageView = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.profile_img);
         profile_name = (TextView) findViewById(R.id.profile_name);
         profile_address = (TextView) findViewById(R.id.profile_address);
         //profile_edit_ok = (Button)findViewById(R.id.profile_edit_ok);
@@ -100,9 +100,9 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //DatabaseReference fileUrl = mDatabase.child(uid);
         //StorageReference storageRef = storage.getReference(); //스토리지참고
-
-        Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
-        mPhotoImageView.setImageBitmap(bm);
+        //mPhotoImageView.setCircleBackgroundColor(R.id.notification_background);
+        //Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
+        //mPhotoImageView.setImageBitmap(bm);
 
 
         mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
@@ -133,6 +133,8 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
+
 
 
     }
@@ -213,6 +215,8 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
 
 
+        Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
+        mPhotoImageView.setImageBitmap(bm);
 
 
         return imageFile;
@@ -387,6 +391,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
 
 
+                    finish();
 
 
                 }

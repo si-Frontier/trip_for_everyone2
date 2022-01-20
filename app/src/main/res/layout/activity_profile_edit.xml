@@ -17,37 +17,43 @@
     <!-- 거주 지역 -->
 
 
+    <!-- Vector 62 -->
+
+
+    <!-- 이매동 -->
+
     <ImageButton
         android:id="@+id/button"
-        android:layout_width="48dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/profile_edt_image_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.595"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image"
-        app:layout_constraintVertical_bias="1.0"
+        android:background="@drawable/profile_edti_btn"
+        android:src="@drawable/profile_edti_btn"
+        app:layout_constraintBottom_toTopOf="@+id/profile_name"
+        app:layout_constraintEnd_toEndOf="@+id/profile_img"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/profile_img"
+        app:layout_constraintTop_toTopOf="@+id/profile_img"
+        app:layout_constraintVertical_bias="0.645"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image"
-        android:layout_width="142dp"
-        android:layout_height="120dp"
+        android:id="@+id/profile_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="35sp"
         android:layout_marginBottom="19sp"
-        android:src="@drawable/mypage_image"
+        android:src="@drawable/profile_edit_img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <TextView
         android:id="@+id/profile_name_text"
@@ -68,14 +74,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintVertical_bias="0.093" />
-
-
-    <!-- Vector 62 -->
-
-
-    <!-- 이매동 -->
+        app:layout_constraintTop_toBottomOf="@+id/profile_img"
+        app:layout_constraintVertical_bias="0.104" />
 
     <TextView
         android:id="@+id/profile_name"
@@ -91,7 +91,7 @@
         app:layout_constraintBottom_toTopOf="@+id/profile_address_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img"
         app:layout_constraintVertical_bias="0.731" />
 
     <ImageView
@@ -125,7 +125,7 @@
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49" />
+        app:layout_constraintVertical_bias="0.563" />
 
     <TextView
         android:id="@+id/profile_address"
@@ -143,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_name"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.246" />
 
     <ImageView
         android:id="@+id/profile_line_address"
@@ -157,5 +157,6 @@
         app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/profile_address"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.08" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

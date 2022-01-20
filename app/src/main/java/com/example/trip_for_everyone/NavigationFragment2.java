@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -35,10 +32,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import org.w3c.dom.Text;
-
-import java.io.File;
 
 
 /**
@@ -86,6 +79,7 @@ public class NavigationFragment2 extends Fragment {
     private String address;
     private DatabaseReference mDatabase;
 
+
     /**
      * Use this factory method to create a new instance of
 
@@ -104,6 +98,7 @@ public class NavigationFragment2 extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
 
     public NavigationFragment2() {
         // Required empty public constructor
@@ -151,6 +146,29 @@ public class NavigationFragment2 extends Fragment {
         alarm_point = (ImageView)view.findViewById(R.id.alarm_point);
 
 
+
+        //FragmentManager fragmentManager = getSupportFragmentManager();
+        //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
+       // BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
+//        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                switch (item.getItemId()) {
+//                    case R.id.menu1:
+//                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
+//                        break;
+//                    case R.id.menu2:
+//                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
+//                        break;
+//                    case R.id.menu3:
+//                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment2).commitAllowingStateLoss();
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
 
 /*
         //현재 로그인한 사용자 이름
@@ -231,7 +249,7 @@ public class NavigationFragment2 extends Fragment {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 //이미지 로드 실패시
-                Toast.makeText(getContext(), "실패", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "프로필 사진을 등록해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -275,7 +293,11 @@ public class NavigationFragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(view.getContext(), Mypage_main_logout.class);
+                //여기 실행이 이상함, 프래그먼트 불러오는거 더 찾아보기
+//                Intent intent = new Intent(getActivity(), navigation3.class);
+//                startActivity(intent);
+//                activity.onFragmentChange(1);
+                Intent intent = new Intent(view.getContext(),Mypage_main.class);
                 startActivity(intent);
             }
         });
@@ -356,6 +378,8 @@ public class NavigationFragment2 extends Fragment {
 //        });
         return view;
     }
+
+
 
 //    private void getFireBaseProfileImage(int num){
 //        File file = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES+"/profile_img");

@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Mypage_main extends AppCompatActivity {
 
@@ -45,7 +44,7 @@ public class Mypage_main extends AppCompatActivity {
         member_res_text = (TextView)findViewById(R.id.member_res_text);
         member_name_text = (TextView)findViewById(R.id.member_name_text);
         profile_edit_button = (Button) findViewById(R.id.profile_edit_button);
-        mypage_logout_button = (Button) findViewById(R.id.mypage_logout_button);
+        mypage_logout_button = (Button) findViewById(R.id.mypage_login_button);
         course_text = (Button) findViewById(R.id.course_text);
         alarm = (Button) findViewById(R.id.alarm);
         myreview_text = (Button) findViewById(R.id.myreview_text);
