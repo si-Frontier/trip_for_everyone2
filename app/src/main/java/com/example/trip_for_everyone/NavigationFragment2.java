@@ -358,6 +358,14 @@ public class NavigationFragment2 extends Fragment {
             }
         });
 
+        schedule_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getContext(), Mypage_schedule.class);
+                startActivity(intent);
+            }
+        });
+
 //        FirebaseStorage storage = FirebaseStorage.getInstance();
 //        StorageReference storageRef = storage.getReference();
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
