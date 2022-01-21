@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/searchEditText"
-        android:layout_width="183dp"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="76dp"
         android:layout_marginTop="29dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginEnd="113dp"
         android:layout_marginBottom="654dp"
         android:gravity="start"
         android:hint=" 검색"
@@ -88,6 +88,21 @@
             android:text="체험관" />
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="653dp"
+        android:text="필터"
+        android:textSize="17sp" />
 
     <!--<TextView
         android:id="@+id/textView2"
