@@ -106,6 +106,7 @@ public class NavigationFragment2 extends Fragment {
     public void onAttach(Context context){
         super.onAttach(context);
 
+        mContext = context;
         activity = (MainActivity)getActivity();
     }
 
@@ -128,12 +129,7 @@ public class NavigationFragment2 extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Context context){
-        super.onAttach(context);
 
-        mContext = context;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
