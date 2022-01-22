@@ -8,12 +8,22 @@ import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.Random;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -91,51 +101,79 @@ public class NavigationFragment extends Fragment {
 
             }
         });
-
+        GregorianCalendar today = new GregorianCalendar();
+        Integer year = today.get(today.YEAR);
+        Integer month = today.get(today.MONTH);
+        int day = today.get(today.DATE);
+        Random rand = new Random(Integer.parseInt(year.toString()+month.toString()+day));
         ////////////////////지울거////////////////
         ArrayList<String> path = new ArrayList<>();     //추천할 여행지를여기에 추가하면 됨
-        path.add("spot/블록시티");
-        path.add("test/palace.png");
-        path.add("test/ic_logo.png");
-
-        viewPager2.setAdapter(new ViewPagerAdapter(path));
-        indicator = view.findViewById(R.id.indicator);
-        indicator.setViewPager(viewPager2);
-        indicator.createIndicators(path.size(),0);
-        /////////////////여기
-        viewPager2.setOffscreenPageLimit(pageLimit);
-        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//        path.add("spot/블록시티");
+//        path.add("test/palace.png");
+//        path.add("test/ic_logo.png");
+        DatabaseReference mdataBase = FirebaseDatabase.getInstance().getReference();
+        mdataBase.child("basicInfo").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if (positionOffsetPixels == 0) {
-                    viewPager2.setCurrentItem(position);
-                }
-            }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int tmp = 0;
+                int random = rand.nextInt((int)snapshot.getChildrenCount());
+                Log.d("gyu",random+" ");
 
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                indicator.animatePageSelected(position);
-            }
+                for(DataSnapshot data : snapshot.getChildren()){
+                    if(tmp>=random&&tmp<(random+3)% snapshot.getChildrenCount()){
+                        Log.d("gyu",data.getKey());
+                        path.add("spot/"+data.getKey());
 
-        });
-
-        viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float myOffset = position * -(80);
-                if (viewPager2.getOrientation() == ViewPager2.ORIENTATION_HORIZONTAL) {
-                    if (ViewCompat.getLayoutDirection(viewPager2) == ViewCompat.LAYOUT_DIRECTION_RTL) {
-                        page.setTranslationX(-myOffset);
-                    } else {
-                        page.setTranslationX(myOffset);
                     }
-                } else {
-                    page.setTranslationY(myOffset);
+                    tmp++;
                 }
+                viewPager2.setAdapter(new ViewPagerAdapter(path));
+                indicator = view.findViewById(R.id.indicator);
+                indicator.setViewPager(viewPager2);
+                indicator.createIndicators(path.size(),0);
+                /////////////////여기
+                viewPager2.setOffscreenPageLimit(pageLimit);
+                viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                        super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+                        if (positionOffsetPixels == 0) {
+                            viewPager2.setCurrentItem(position);
+                        }
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        super.onPageSelected(position);
+                        indicator.animatePageSelected(position);
+                    }
+
+                });
+
+                viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
+                    @Override
+                    public void transformPage(@NonNull View page, float position) {
+                        float myOffset = position * -(80);
+                        if (viewPager2.getOrientation() == ViewPager2.ORIENTATION_HORIZONTAL) {
+                            if (ViewCompat.getLayoutDirection(viewPager2) == ViewCompat.LAYOUT_DIRECTION_RTL) {
+                                page.setTranslationX(-myOffset);
+                            } else {
+                                page.setTranslationX(myOffset);
+                            }
+                        } else {
+                            page.setTranslationY(myOffset);
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
         //////////////////여기
 
 

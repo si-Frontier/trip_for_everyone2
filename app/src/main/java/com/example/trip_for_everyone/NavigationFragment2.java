@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -78,6 +79,7 @@ public class NavigationFragment2 extends Fragment {
     private String name;
     private String address;
     private DatabaseReference mDatabase;
+    private Context mContext;
 
 
     /**
@@ -113,7 +115,12 @@ public class NavigationFragment2 extends Fragment {
         }
     }
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
 
+        mContext = context;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -241,7 +248,8 @@ public class NavigationFragment2 extends Fragment {
                 //이미지 로드 성공시
 
                 Log.d("file",String.valueOf(uri));
-                Glide.with(getContext()).load(uri).into(mypage_image);
+                Glide.with(mContext
+                ).load(uri).into(mypage_image);
 
 
             }

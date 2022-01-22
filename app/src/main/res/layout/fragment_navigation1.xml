@@ -6,27 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".NavigationFragment1"
     android:orientation="vertical">
-        <EditText
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="검색어"
-            android:gravity="center"
-            android:id="@+id/searchEditText"
-            android:textSize="@dimen/little_font_size"
-            />
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginEnd="60dp"
+        android:gravity="center"
+        android:hint="검색어"
+        android:textSize="@dimen/little_font_size"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_search"
         android:id="@+id/NF1_search_button"
-        android:layout_toRightOf="@+id/searchEditText"/>
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="-60dp"
+        android:layout_toRightOf="@+id/searchEditText"
+        android:src="@drawable/ic_search" />
 
     <RelativeLayout
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_marginTop="100sp"
-        android:layout_height="500sp" />
+        android:layout_height="600dp"
+
+        android:layout_marginTop="60dp" />
         <!--<TextView
             android:id="@+id/textView2"
             android:layout_width="110dp"

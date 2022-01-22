@@ -1,9 +1,9 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
-import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,15 +23,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import net.daum.mf.map.api.CalloutBalloonAdapter;
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
-import net.daum.mf.map.api.MapReverseGeoCoder;
 import net.daum.mf.map.api.MapView;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -51,7 +48,7 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private Context mContext;
     public NavigationFragment1() {
         // Required empty public constructor
     }
@@ -84,6 +81,13 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
     }
 
     @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+
+        mContext = context;
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -97,10 +101,10 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         ImageButton imgButton = rootView.findViewById(R.id.NF1_search_button);
 
-        Log.d("asdf","asdf");
-        mapView = new MapView(getActivity());
+        mapView = new MapView(mContext);
         mapView.setMapViewEventListener(this);
         mapView.setPOIItemEventListener(this);
+        mapView.setCalloutBalloonAdapter(new CustomCalloutBalloonAdapter());
 
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,14 +116,10 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
                     else {
                         getMarker(data);
                         mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(data.lat,data.lon), true);
-//                        marker.setMapPoint(mapPoint);
-//                        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
-//                        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
-//
-//                        mapView.addPOIItem(marker);
                     }
                 }
                 else{
+                    Log.d("gyu","empty");
                     //아무것도 입력 안하면?
                 }
             }
@@ -133,10 +133,6 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
         return rootView;
     }
     private void getMarker(Data data){
-
-//                        MapPOIItem marker = new MapPOIItem();
-//                        marker.setItemName("Default Marker");
-//                        marker.setTag(0);
         Log.d("move","success");
 
         DatabaseReference spotRef = mDatabase.child("basicInfo");
@@ -166,7 +162,6 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("order","noooooooooo");
             }
         });
     }
@@ -179,8 +174,6 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
     @Override
     public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
         Log.d("MapView","CenterMoved");
-//        mapView.removeAllPOIItems();
-//        getMarker(new Data(mapPoint.getMapPointGeoCoord().latitude,mapPoint.getMapPointGeoCoord().longitude));
     }
 
     @Override
@@ -292,6 +285,24 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
             Log.e("success",list.get(0).getLongitude()+" ");
             Log.e("success",list.get(0).getLatitude()+" ");
             return new Data(list.get(0).getLatitude(), list.get(0).getLongitude());
+        }
+    }
+    class CustomCalloutBalloonAdapter implements CalloutBalloonAdapter{
+        private final View mCalloutBalloon;
+        public CustomCalloutBalloonAdapter(){
+            mCalloutBalloon = getLayoutInflater().inflate(R.layout.custom_callout_balloon,null);
+
+        }
+        @Override
+        public View getCalloutBalloon(MapPOIItem mapPOIItem) {
+//            ((ImageView) mCalloutBalloon.findViewById(R.id.pin))
+            ((TextView) mCalloutBalloon.findViewById(R.id.marker_title)).setText(mapPOIItem.getItemName());
+            return mCalloutBalloon;
+        }
+
+        @Override
+        public View getPressedCalloutBalloon(MapPOIItem mapPOIItem) {
+            return mCalloutBalloon;
         }
     }
 }

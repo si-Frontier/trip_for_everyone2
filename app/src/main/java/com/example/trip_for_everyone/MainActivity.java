@@ -79,13 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        getHashKey();
-//        if(true/*첫 로그인일 경우*/){
-//            Intent intent = new Intent(getApplicationContext(), CardNewsActivity.class);
-//            startActivity(intent);
-//        }
-
-
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
