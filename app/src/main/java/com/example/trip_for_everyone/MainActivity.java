@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationFragment navigationFragment = new NavigationFragment();
     private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
     private NavigationFragment2 navigationFragment2 = new NavigationFragment2();
+    private navigation3 navigation3 = new navigation3();
     private long backKeyPressedTime = 0;
     private Toast toast;
     private String name;
@@ -79,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        getHashKey();
+//        if(true/*첫 로그인일 경우*/){
+//            Intent intent = new Intent(getApplicationContext(), CardNewsActivity.class);
+//            startActivity(intent);
+//        }
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
@@ -94,7 +103,12 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.navigationFragments, navigationFragment1).commitAllowingStateLoss();
                         break;
                     case R.id.menu3:
-                        fragmentTransaction.replace(R.id.navigationFragments, navigationFragment2).commitAllowingStateLoss();
+                        if (user != null){
+                            fragmentTransaction.replace(R.id.navigationFragments, navigationFragment2).commitAllowingStateLoss();
+                        }else{
+                            fragmentTransaction.replace(R.id.navigationFragments, navigation3).commitAllowingStateLoss();
+                        }
+
                         break;
                 }
                 return true;
@@ -159,7 +173,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    
+
+    public void onFragmentChange(int index){
+        if(index == 0){
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigationFragments, navigationFragment).commit();
+
+        }else if(index==1){
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigationFragments, navigationFragment1).commit();
+        }else if(index == 2){
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigationFragments, navigationFragment2).commit();
+        }else if(index == 3){
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigationFragments, navigation3).commit();
+        }
+    }
+
+
 }
 
 

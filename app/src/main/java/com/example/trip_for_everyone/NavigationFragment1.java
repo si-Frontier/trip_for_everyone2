@@ -44,11 +44,11 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
     private static final String ARG_PARAM2 = "param2";
     MapView mapView;
     DatabaseReference mDatabase;
+    MainActivity activity;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Context mContext;
     public NavigationFragment1() {
         // Required empty public constructor
     }
@@ -84,7 +84,14 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
     public void onAttach(Context context){
         super.onAttach(context);
 
-        mContext = context;
+        activity = (MainActivity)getActivity();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        activity = null;
     }
 
     @Override
@@ -101,7 +108,7 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         ImageButton imgButton = rootView.findViewById(R.id.NF1_search_button);
 
-        mapView = new MapView(mContext);
+        mapView = new MapView(activity);
         mapView.setMapViewEventListener(this);
         mapView.setPOIItemEventListener(this);
         mapView.setCalloutBalloonAdapter(new CustomCalloutBalloonAdapter());

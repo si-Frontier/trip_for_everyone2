@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -132,16 +133,16 @@ public class navigation3 extends Fragment {
 
 
 
-        // addValueEventListener
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+//        // addValueEventListener
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
 
 
 
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference fileUrl = mDatabase.child(uid);
-        StorageReference storageRef = storage.getReference(); //스토리지참고
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//        DatabaseReference fileUrl = mDatabase.child(uid);
+//        StorageReference storageRef = storage.getReference(); //스토리지참고
 
 
         mypage_login_button.setOnClickListener(new View.OnClickListener() {
@@ -156,56 +157,49 @@ public class navigation3 extends Fragment {
         mypage_account_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), mypage_account.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         mypage_setting_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), mypage_setting.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         mypage_announcement_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), mypage_announcement.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         mypage_etc_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), mypage_etc.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         profile_edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), profile_edit.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         alarm_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), mypage_alarm.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         bookmark_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(getContext(), BookmarkPage.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
             }
         });
 

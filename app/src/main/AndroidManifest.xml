@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera2" />
 
     <application
@@ -20,6 +21,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mypage_schedule"
+            android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.trip_for_everyone"
@@ -29,6 +37,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".BookmarkPage"
             android:exported="false" />
@@ -83,14 +92,13 @@
             android:exported="false" />
         <activity
             android:name=".CardNewsActivity"
-            android:exported="false" />
-<!--        <activity android:name="com.example.trip_for_everyone.mypage_account"></activity>-->
-        <!-- <activity android:name="com.example.trip_for_everyone.profile_edit"></activity>-->
-    <!--        <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity>-->
-<!--        <activity android:name="com.example.trip_for_everyone.mypage_etc"></activity>-->
-<!--        <activity android:name="com.example.trip_for_everyone.mypage_setting"></activity>-->
+            android:exported="false" /> <!-- <activity android:name="com.example.trip_for_everyone.mypage_account"></activity> -->
+        <!-- <activity android:name="com.example.trip_for_everyone.profile_edit"></activity> -->
+        <!-- <activity android:name="com.example.trip_for_everyone.mypage_announcement"></activity> -->
+        <!-- <activity android:name="com.example.trip_for_everyone.mypage_etc"></activity> -->
+        <!-- <activity android:name="com.example.trip_for_everyone.mypage_setting"></activity> -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".Intro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -99,7 +107,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
     </application>
 

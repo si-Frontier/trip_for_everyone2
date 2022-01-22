@@ -81,6 +81,7 @@ public class NavigationFragment2 extends Fragment {
     private DatabaseReference mDatabase;
     private Context mContext;
 
+    MainActivity activity;
 
     /**
      * Use this factory method to create a new instance of
@@ -101,7 +102,19 @@ public class NavigationFragment2 extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
 
+        activity = (MainActivity)getActivity();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        activity = null;
+    }
     public NavigationFragment2() {
         // Required empty public constructor
     }
@@ -304,9 +317,9 @@ public class NavigationFragment2 extends Fragment {
                 //여기 실행이 이상함, 프래그먼트 불러오는거 더 찾아보기
 //                Intent intent = new Intent(getActivity(), navigation3.class);
 //                startActivity(intent);
-//                activity.onFragmentChange(1);
-                Intent intent = new Intent(view.getContext(),Mypage_main.class);
-                startActivity(intent);
+                activity.onFragmentChange(3);
+                //Intent intent = new Intent(view.getContext(),Mypage_main.class);
+                //startActivity(intent);
             }
         });
 
@@ -362,6 +375,14 @@ public class NavigationFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent(getContext(), BookmarkPage.class);
+                startActivity(intent);
+            }
+        });
+
+        schedule_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getContext(), Mypage_schedule.class);
                 startActivity(intent);
             }
         });
