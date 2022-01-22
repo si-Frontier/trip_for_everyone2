@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -79,6 +80,7 @@ public class NavigationFragment2 extends Fragment {
     private String address;
     private DatabaseReference mDatabase;
 
+    MainActivity activity;
 
     /**
      * Use this factory method to create a new instance of
@@ -99,7 +101,19 @@ public class NavigationFragment2 extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
 
+        activity = (MainActivity)getActivity();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        activity = null;
+    }
     public NavigationFragment2() {
         // Required empty public constructor
     }
@@ -296,9 +310,9 @@ public class NavigationFragment2 extends Fragment {
                 //여기 실행이 이상함, 프래그먼트 불러오는거 더 찾아보기
 //                Intent intent = new Intent(getActivity(), navigation3.class);
 //                startActivity(intent);
-//                activity.onFragmentChange(1);
-                Intent intent = new Intent(view.getContext(),Mypage_main.class);
-                startActivity(intent);
+                activity.onFragmentChange(3);
+                //Intent intent = new Intent(view.getContext(),Mypage_main.class);
+                //startActivity(intent);
             }
         });
 

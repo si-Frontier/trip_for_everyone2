@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -27,6 +28,7 @@ public class NavigationFragment extends Fragment {
     ViewPager2 viewPager2;
     StorageDownload download;
     CircleIndicator3 indicator;
+    MainActivity activity;
 
     private InfoFragment1 infoFragment1 = new InfoFragment1();
     // TODO: Rename parameter arguments, choose names that match
@@ -42,6 +44,19 @@ public class NavigationFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+
+        activity = (MainActivity)getActivity();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        activity = null;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.

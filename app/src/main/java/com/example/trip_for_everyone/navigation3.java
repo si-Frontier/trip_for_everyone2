@@ -132,16 +132,16 @@ public class navigation3 extends Fragment {
 
 
 
-        // addValueEventListener
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+//        // addValueEventListener
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
 
 
 
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference fileUrl = mDatabase.child(uid);
-        StorageReference storageRef = storage.getReference(); //스토리지참고
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//        DatabaseReference fileUrl = mDatabase.child(uid);
+//        StorageReference storageRef = storage.getReference(); //스토리지참고
 
 
         mypage_login_button.setOnClickListener(new View.OnClickListener() {
