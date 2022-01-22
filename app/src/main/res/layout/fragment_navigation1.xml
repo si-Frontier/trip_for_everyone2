@@ -24,7 +24,7 @@
         android:textSize="@dimen/little_font_size"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/NF1_search_button"
         android:layout_width="30dp"
         android:layout_height="34dp"

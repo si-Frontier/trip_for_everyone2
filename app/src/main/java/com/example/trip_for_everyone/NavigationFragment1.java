@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -47,6 +48,7 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
     private static final String ARG_PARAM2 = "param2";
     MapView mapView;
     DatabaseReference mDatabase;
+    MainActivity activity;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -81,6 +83,20 @@ public class NavigationFragment1 extends Fragment implements MapView.MapViewEven
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+
+        activity = (MainActivity)getActivity();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        activity = null;
     }
 
     @Override
