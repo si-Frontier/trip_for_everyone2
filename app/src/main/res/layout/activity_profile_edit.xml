@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/profile_edit"
     tools:context=".profile_edit">
 
 
@@ -33,12 +34,12 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/profile_edti_btn"
         android:src="@drawable/profile_edti_btn"
-        app:layout_constraintBottom_toTopOf="@+id/profile_name"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_img"
         app:layout_constraintEnd_toEndOf="@+id/profile_img"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/profile_img"
         app:layout_constraintTop_toTopOf="@+id/profile_img"
-        app:layout_constraintVertical_bias="0.645"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -158,5 +159,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/profile_address"
         app:layout_constraintVertical_bias="0.08" />
+
+    <Button
+        android:id="@+id/profile_edit_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_address"
+        app:layout_constraintVertical_bias="0.251" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

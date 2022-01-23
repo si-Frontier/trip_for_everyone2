@@ -11,6 +11,7 @@ import androidx.loader.content.CursorLoader;
 
 import android.accessibilityservice.GestureDescription;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -59,6 +60,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     private String name;
     private String address;
 
+    MainActivity activity;
 //    private int NavigationFragment2 = 1;
     private DatabaseReference mDatabase;
     //private Uri mImageCaptureUri = null;
@@ -67,10 +69,17 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     private de.hdodenhof.circleimageview.CircleImageView mPhotoImageView;
     private ImageButton mButton;
     String mCurrentPhotoPath;
-
+    private NavigationFragment navigationFragment = new NavigationFragment();
+    private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
+    private NavigationFragment2 navigationFragment2 = new NavigationFragment2();
+    private navigation3 navigation3 = new navigation3();
     private Button profile_edit_ok;
     private TextView profile_name;
     private TextView profile_address;
+
+
+    Fragment fragment1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +90,18 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
         mPhotoImageView = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.profile_img);
         profile_name = (TextView) findViewById(R.id.profile_name);
         profile_address = (TextView) findViewById(R.id.profile_address);
-        //profile_edit_ok = (Button)findViewById(R.id.profile_edit_ok);
+        profile_edit_ok = (Button)findViewById(R.id.profile_edit_ok);
+
+        //fragment 생성
+
+        //requestActivity에 fragment1을 띄워줌
+
+        //번들객체 생성, text값
+
+
+
+
+
 
         mButton.setOnClickListener(this);
 //        profile_edit_ok.setOnClickListener(new View.OnClickListener() {
@@ -98,12 +118,29 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference fileUrl = mDatabase.child(uid);
         //DatabaseReference fileUrl = mDatabase.child(uid);
         //StorageReference storageRef = storage.getReference(); //스토리지참고
         //mPhotoImageView.setCircleBackgroundColor(R.id.notification_background);
         //Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
         //mPhotoImageView.setImageBitmap(bm);
 
+        profile_edit_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragment1 = new NavigationFragment2();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.profile_edit,fragment1).commit();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("fileUri",uid); // Key, Value
+                fragment1.setArguments(bundle);
+
+                finish();
+
+
+
+            }
+        });
 
         mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
 
@@ -133,6 +170,9 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
+
+
 
 
 
@@ -391,7 +431,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
 
 
-                    finish();
+
 
 
                 }

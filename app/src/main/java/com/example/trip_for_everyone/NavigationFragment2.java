@@ -85,8 +85,7 @@ public class NavigationFragment2 extends Fragment {
 
     /**
      * Use this factory method to create a new instance of
-
-    * this fragment using the provided parameters.
+     * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
@@ -166,7 +165,7 @@ public class NavigationFragment2 extends Fragment {
         //FragmentManager fragmentManager = getSupportFragmentManager();
         //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         //fragmentTransaction.replace(R.id.navigationFragments, navigationFragment).commitAllowingStateLoss();
-       // BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
+        // BottomNavigationView bottomNavigationView = findViewById(R.id.navigationBar);
 //        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
 //            @Override
 //            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -201,10 +200,8 @@ public class NavigationFragment2 extends Fragment {
                     member_name_text.setText(name+"님");
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 */
@@ -221,19 +218,15 @@ public class NavigationFragment2 extends Fragment {
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if (!task.isSuccessful()) {
                         Log.e("firebase", "Error getting data", task.getException());
-
                     }
                     else {
                         name  = String.valueOf(task.getResult().getValue());
-
                         member_name_text.setText(name+"님");
                         Log.d("firebase", String.valueOf(task.getResult().getValue()));
                     }
                 }
-
             });
         }
-
 */
 
 
@@ -288,7 +281,7 @@ public class NavigationFragment2 extends Fragment {
         });
 
 
-          //  String name = getArguments().getString("name");
+        //  String name = getArguments().getString("name");
 
         mDatabase.child("users").child(uid).child("address").addValueEventListener(new ValueEventListener() {
             @Override
