@@ -3,13 +3,17 @@
     <item
         android:title="@string/infomenu1"
         android:id="@+id/infomenu1"
+        android:icon="@drawable/basic_info_selector"
+
         />
     <item
         android:title="@string/infomenu2"
         android:id="@+id/infomenu2"
+        android:icon="@drawable/disabled_info_selector"
         />
     <item
         android:title="@string/infomenu3"
         android:id="@+id/infomenu3"
+        android:icon="@drawable/review_tip_selector"
         />
 </menu>

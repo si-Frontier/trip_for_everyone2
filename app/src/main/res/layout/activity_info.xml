@@ -76,8 +76,9 @@
                 android:background="?android:attr/listDivider" />
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:elevation="0dp"
+                app:itemTextColor="@color/black"
                 android:id="@+id/info_navigation"
                 app:menu="@menu/info_menu"/>
             <View

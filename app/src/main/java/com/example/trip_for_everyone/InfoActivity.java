@@ -145,6 +145,7 @@ public class InfoActivity extends AppCompatActivity {
         infoFragment1.setArguments(bundle);
         infoFragment3.setArguments(bundle);
 
+        bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -153,17 +154,21 @@ public class InfoActivity extends AppCompatActivity {
                     case R.id.infomenu1:
                         fragmentTransaction.replace(R.id.info_fragment,infoFragment1).commitAllowingStateLoss();
                         fab.setVisibility(View.INVISIBLE);
-                        break;
+                        return true;
+//                        break;
                     case R.id.infomenu2:
                         fragmentTransaction.replace(R.id.info_fragment,infoFragment2).commitAllowingStateLoss();
+//                        item.setIcon(R.drawable.ic_disabled_info_selected);
                         fab.setVisibility(View.INVISIBLE);
-                        break;
+                        return true;
+//                        break;
                     case R.id.infomenu3:
                         fragmentTransaction.replace(R.id.info_fragment, infoFragment3).commitAllowingStateLoss();
+//                        item.setIcon(R.drawable.ic_review_tip_selected);
                         fab.setVisibility(View.VISIBLE);
 
-
-                        break;
+                        return true;
+//                        break;
                 }
                 return false;
             }

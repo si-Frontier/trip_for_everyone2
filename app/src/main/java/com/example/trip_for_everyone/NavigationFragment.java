@@ -138,11 +138,11 @@ public class NavigationFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int tmp = 0;
-                int random = rand.nextInt((int)snapshot.getChildrenCount());
+                int random = rand.nextInt((int)snapshot.getChildrenCount()-3);
                 Log.d("gyu",random+" ");
 
                 for(DataSnapshot data : snapshot.getChildren()){
-                    if(tmp>=random&&tmp<(random+3)% snapshot.getChildrenCount()){
+                    if(tmp>=random&&tmp<random+3){
                         Log.d("gyu",data.getKey());
                         path.add("spot/"+data.getKey());
 
