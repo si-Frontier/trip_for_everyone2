@@ -15,13 +15,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049"
+        app:layout_constraintVertical_bias="0.087"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/content"
-        android:layout_width="362dp"
-        android:layout_height="97dp"
+        android:layout_width="360dp"
+        android:layout_height="371dp"
         android:background="@drawable/border"
         android:backgroundTint="#BFBFBF"
         android:ems="10"
@@ -30,22 +30,23 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242"
+        app:layout_constraintVertical_bias="0.383"
         tools:ignore="MissingConstraints" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+
         android:id="@+id/button"
-        android:layout_width="271dp"
+        android:layout_width="264dp"
         android:layout_height="37dp"
         android:text="후기/팁 등록하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.416"
+        app:layout_constraintVertical_bias="0.932"
         tools:ignore="MissingConstraints" />
 
     <RatingBar
@@ -72,9 +73,10 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_gravity="center"
-            android:textSize="@dimen/medium_font_size"
+            android:textSize="15sp"
             android:id="@+id/gyu1"
             android:textColor="#000000"
+
             android:text="리뷰/팁 작성"/>
     </androidx.appcompat.widget.Toolbar>
 
