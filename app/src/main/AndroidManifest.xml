@@ -22,6 +22,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trip_for_everyone">
         <activity
+            android:name=".mypage_course_start"
+            android:exported="false" />
+        <activity
+            android:name=".mypage_course"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

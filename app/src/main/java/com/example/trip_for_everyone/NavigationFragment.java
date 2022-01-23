@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +41,9 @@ public class NavigationFragment extends Fragment {
     StorageDownload download;
     CircleIndicator3 indicator;
     MainActivity activity;
+    ImageView top_one_img;
+    Button tmpInfoBtn;
+
 
     private InfoFragment1 infoFragment1 = new InfoFragment1();
     // TODO: Rename parameter arguments, choose names that match
@@ -88,6 +93,7 @@ public class NavigationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -106,6 +112,7 @@ public class NavigationFragment extends Fragment {
         //여행지 클릭시 여행지 이름 인텐트에 담기
 
         Button tmpButton = view.findViewById(R.id.tmpInfoBtn);
+
         tmpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

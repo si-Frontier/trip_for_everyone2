@@ -383,6 +383,14 @@ public class NavigationFragment2 extends Fragment {
             }
         });
 
+        course_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), mypage_course.class);
+                startActivity(intent);
+            }
+        });
+
 //        FirebaseStorage storage = FirebaseStorage.getInstance();
 //        StorageReference storageRef = storage.getReference();
 //        mDatabase = FirebaseDatabase.getInstance().getReference();

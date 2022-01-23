@@ -10,18 +10,6 @@
 
 
     <TextView
-        android:id="@+id/schedule_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="  일정관리"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
-
-    <TextView
         android:id="@+id/alarm_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,18 +44,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.448" />
 
-    <TextView
-        android:id="@+id/course_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="코스선택"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
-
     <Button
         android:id="@+id/mypage_logout_button"
         android:layout_width="111dp"
@@ -84,17 +60,54 @@
 
     <ImageButton
         android:id="@+id/course_button"
-        android:layout_width="53dp"
+        android:layout_width="48dp"
         android:layout_height="47dp"
         android:layout_marginStart="136dp"
-        android:background="@drawable/real_course"
+        android:background="@drawable/mypage_course_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.369"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/schedule_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  일정관리"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448" />
+
+    <ImageButton
+        android:id="@+id/schedule_button"
+        android:layout_width="53dp"
+        android:layout_height="47dp"
+        android:background="@drawable/mypage_schedule_drawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.369"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/course_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="코스선택"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/mypage_image"
@@ -160,7 +173,7 @@
         android:id="@+id/bookmark_button"
         android:layout_width="53dp"
         android:layout_height="47dp"
-        android:background="@drawable/real_bookmark"
+        android:background="@drawable/mypage_bookmark_drawable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
@@ -170,21 +183,8 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/schedule_button"
-        android:layout_width="53dp"
-        android:layout_height="47dp"
-        android:background="@drawable/real_schedule"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
         android:id="@+id/alarm_button"
-        android:layout_width="53dp"
+        android:layout_width="41dp"
         android:layout_height="47dp"
         android:background="@drawable/real_alarm"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -301,10 +301,10 @@
         android:src="@drawable/red_point"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/mypage_line"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.859"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintVertical_bias="0.35" />
 
     <TextView
         android:id="@+id/addressTextView"
