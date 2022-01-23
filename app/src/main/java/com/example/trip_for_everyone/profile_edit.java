@@ -6,11 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.loader.content.CursorLoader;
 
 import android.accessibilityservice.GestureDescription;
 import android.app.AlertDialog;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -125,22 +126,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
         //Bitmap bm = BitmapFactory.decodeFile(mCurrentPhotoPath);
         //mPhotoImageView.setImageBitmap(bm);
 
-        profile_edit_ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragment1 = new NavigationFragment2();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.profile_edit,fragment1).commit();
 
-                Bundle bundle = new Bundle();
-                bundle.putString("fileUri",uid); // Key, Value
-                fragment1.setArguments(bundle);
-
-                finish();
-
-
-
-            }
-        });
 
         mDatabase.child("users").child(uid).child("userName").addValueEventListener(new ValueEventListener() {
 
@@ -173,6 +159,24 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
 
 
 
+        profile_edit_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragment1 = new NavigationFragment2();
+               // getSupportFragmentManager().beginTransaction().replace(R.id.profile_edit,fragment1).addToBackStack(null).commit();
+
+                String ok = "ok";
+                Bundle bundle = new Bundle();
+                bundle.putString("ok",ok); // Key, Value
+                fragment1.setArguments(bundle);
+               // onResume();
+                finish();
+
+
+
+
+            }
+        });
 
 
 
@@ -461,6 +465,9 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+
+
 
     // uri 절대경로 가져오기
     private String getRealPathFromUri(Uri uri)

@@ -3,10 +3,12 @@ package com.example.trip_for_everyone;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -128,6 +130,18 @@ public class NavigationFragment2 extends Fragment {
         }
     }
 
+    @Override public void onResume() {
+        super.onResume();
+        profile_edit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), profile_edit.class);
+                startActivity(intent);
+                //onResume();
+            }
+        });
+    }
+
 
 
     @Override
@@ -159,6 +173,8 @@ public class NavigationFragment2 extends Fragment {
         mypage_announcement_button = (Button)view.findViewById(R.id.mypage_announcement_button);
         mypage_etc_button = (Button)view.findViewById(R.id.mypage_etc_button);
         alarm_point = (ImageView)view.findViewById(R.id.alarm_point);
+
+
 
 
 
@@ -228,6 +244,7 @@ public class NavigationFragment2 extends Fragment {
             });
         }
 */
+
 
 
 
@@ -347,8 +364,10 @@ public class NavigationFragment2 extends Fragment {
         profile_edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), profile_edit.class);
-                startActivity(intent);
+//                Intent intent = new Intent(view.getContext(), profile_edit.class);
+//                startActivity(intent);
+//                onResume();
+                onResume();
             }
         });
 

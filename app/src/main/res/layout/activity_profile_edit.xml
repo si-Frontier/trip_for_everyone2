@@ -34,27 +34,27 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/profile_edti_btn"
         android:src="@drawable/profile_edti_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_img"
-        app:layout_constraintEnd_toEndOf="@+id/profile_img"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/profile_img"
-        app:layout_constraintTop_toTopOf="@+id/profile_img"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/profile_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="35sp"
         android:layout_marginBottom="19sp"
-        android:src="@drawable/profile_edit_img"
+        android:src="@drawable/profile_edit_img_ex"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/profile_name_text"
@@ -75,8 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_img"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.398" />
 
     <TextView
         android:id="@+id/profile_name"
@@ -92,8 +92,8 @@
         app:layout_constraintBottom_toTopOf="@+id/profile_address_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_img"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintTop_toTopOf="@+id/profile_name_text"
+        app:layout_constraintVertical_bias="0.338" />
 
     <ImageView
         android:id="@+id/profile_line_name"
@@ -164,7 +164,9 @@
         android:id="@+id/profile_edit_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/clear"
         android:text="확인"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
