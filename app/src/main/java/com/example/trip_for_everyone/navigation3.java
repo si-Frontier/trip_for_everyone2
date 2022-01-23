@@ -1,5 +1,6 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -63,6 +64,7 @@ public class navigation3 extends Fragment {
     private String name;
     private String address;
     private DatabaseReference mDatabase;
+    MainActivity activity;
     //private FragmentManager fragmentManager = getSupportFragmentManager();
     private NavigationFragment navigationFragment = new NavigationFragment();
     private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
@@ -70,6 +72,19 @@ public class navigation3 extends Fragment {
 
 
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+
+        activity = (MainActivity)getActivity();
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        activity = null;
+    }
     public navigation3() {
         // Required empty public constructor
     }
