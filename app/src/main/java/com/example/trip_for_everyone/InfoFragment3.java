@@ -107,14 +107,17 @@ public class InfoFragment3 extends Fragment {
            // String spotName = bundle.getString("spotName"); //Name 받기.
             //System.out.println("info / spotname : :::" + spotName);
             String spotName="블록시티";
-
             mDatabase.child("review").child(spotName).child(uid).orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
+
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+
                     for (DataSnapshot child : snapshot.getChildren()) {
+                        //Review review = snapshot.getValue(Review.class);
+                       // review.getname();
                       //  list.add(child.getValue(Review.class));
-                        System.out.println("child"+ child.getValue(Review.class));
+                       System.out.println("child"+ snapshot.getValue(Review.class));
                     }
                     mAdapter.setReviewmarkList(list);
                   //  mRecyclerView.setAdapter(mAdapter);

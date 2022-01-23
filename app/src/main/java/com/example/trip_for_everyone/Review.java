@@ -8,6 +8,14 @@ public class Review {
     private int uid;
     private String name;
 
+
+    public Review(String name, int star , int nowTime ,String content) {
+        this.name = name;
+        this.star = star;
+        this. nowTime  = nowTime ;
+        this. content  = content ;
+    }
+
     public Integer getstar() {
         return star;
     }
