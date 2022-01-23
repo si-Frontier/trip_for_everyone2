@@ -38,7 +38,7 @@
         android:id="@+id/mypage_account"
         android:layout_width="62dp"
         android:layout_height="36dp"
-        android:text="계정"
+        android:text="계정 "
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
