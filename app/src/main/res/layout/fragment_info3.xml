@@ -41,6 +41,8 @@
 
         </LinearLayout>
 
+
+
         <RatingBar
             android:id="@+id/ratingBar"
             style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
@@ -50,7 +52,10 @@
             android:numStars="5"
             android:progressTint="#FFEB3B"
             android:rating="2"
-            android:stepSize="0.5">
+            android:stepSize="0.5"
+            android:outlineAmbientShadowColor="#0000"
+            android:outlineSpotShadowColor="#0000"
+            android:backgroundTint="@null">
 
         </RatingBar>
     </LinearLayout>
@@ -64,28 +69,23 @@
         app:layout_constraintTop_toBottomOf="@+id/info_address_textView"
         android:background="?android:attr/listDivider" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="300sp"
-    >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="리뷰 작성자 " />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300sp"
+        android:orientation="horizontal">
 
-    <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/review_recycler_view"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_anchor="@+id/linearLayout"
+            app:layout_anchorGravity="end|center" />
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="리뷰 내용 " />
-
-</LinearLayout>
-
+    </LinearLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

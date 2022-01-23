@@ -1,15 +1,29 @@
 package com.example.trip_for_everyone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,8 +37,13 @@ public class InfoFragment3 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private WriteReviewActivity writeReviewActivity = new WriteReviewActivity();
+    private DatabaseReference mDatabase;
+    private String uid;
+    private RecyclerView mRecyclerView;
+    private ReviewRecycleView mAdapter;
+    private ArrayList<Review> list;
 
-
+    private Context mcontext;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -57,7 +76,15 @@ public class InfoFragment3 extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
+    }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        mcontext = context;
     }
 
     @Override
@@ -66,10 +93,43 @@ public class InfoFragment3 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_info3, container, false);
 
+        list = new ArrayList<>();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+
+        mRecyclerView = (RecyclerView)view.findViewById(R.id.review_recycler_view);
+        mAdapter = new ReviewRecycleView();
+
+        //번들 받기. getArguments() 메소드로 받음.
+      //  Bundle bundle = getArguments();
+        //if(bundle != null) {
+           // String spotName = bundle.getString("spotName"); //Name 받기.
+            //System.out.println("info / spotname : :::" + spotName);
+            String spotName="블록시티";
+
+            mDatabase.child("review").child(spotName).child(uid).orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    for (DataSnapshot child : snapshot.getChildren()) {
+                      //  list.add(child.getValue(Review.class));
+                        System.out.println("child"+ child.getValue(Review.class));
+                    }
+                    mAdapter.setReviewmarkList(list);
+                  //  mRecyclerView.setAdapter(mAdapter);
+                  //  mRecyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
+                }
 
 
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
 
+
+    //    }
 
         // Inflate the layout for this fragment
         return view;

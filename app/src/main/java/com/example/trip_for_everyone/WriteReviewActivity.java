@@ -3,6 +3,7 @@ package com.example.trip_for_everyone;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -25,9 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 public class WriteReviewActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private Button button;
@@ -35,10 +36,11 @@ public class WriteReviewActivity extends AppCompatActivity {
     private String uid;
     private String content;
     private String name;
-    private int star;
+    private double star;
     private EditText editContent;
     private TextView spotNameTv;
     private RatingBar ratingBar;
+    private ArrayList<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,9 @@ public class WriteReviewActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                list = new ArrayList<>();
+
+
                 //사용자 uid 받아오기
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid="";
@@ -68,9 +73,10 @@ public class WriteReviewActivity extends AppCompatActivity {
                 content = editContent.getText().toString();
 
                 // 리뷰 별 개수 받아오기
-                star = ratingBar.getNumStars();
+                star =  ratingBar.getRating();
+                System.out.println("STAR: "+star);
 
-                // 로그인하지 않았을 때 경고창
+               // 로그인하지 않았을 때 경고창
                 if(user == null)
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(WriteReviewActivity.this);
@@ -97,7 +103,12 @@ public class WriteReviewActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             name = dataSnapshot.getValue(String.class);
-                                }
+                            for(DataSnapshot child : dataSnapshot.getChildren()){
+                                list.add(child.getValue().toString());
+                            }
+                           // mAdapter.setBookmarkList(list);
+
+                        }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -107,7 +118,7 @@ public class WriteReviewActivity extends AppCompatActivity {
 
                     //데이터 베이스 쓰기
                     info_review review = new info_review(uid,name,content,System.currentTimeMillis(),star);
-                    mDatabase.child("review").child(spotName).child(uid).setValue(review);
+                    mDatabase.child("review").child(spotName).child(uid).push().setValue(review);
                 }
 
 
@@ -125,14 +136,14 @@ public class WriteReviewActivity extends AppCompatActivity {
         public String uid;
         public String content;
         public String name;
-        public int star;
+        public double star;
         public long nowTime;
 
         public info_review() {
             // Default constructor
         }
 
-        public info_review(String uid, String name, String content,long nowTime ,int star) {
+        public info_review(String uid, String name, String content,long nowTime ,double star) {
             this.uid = uid;
             this.content = content;
             this.name = name;

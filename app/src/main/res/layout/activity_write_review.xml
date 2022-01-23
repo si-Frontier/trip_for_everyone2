@@ -59,4 +59,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.12"
         tools:ignore="MissingConstraints" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="#ffffff"
+        android:id="@+id/bookmark_toolbar"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="@dimen/medium_font_size"
+            android:id="@+id/gyu1"
+            android:textColor="#000000"
+            android:text="리뷰/팁 작성"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

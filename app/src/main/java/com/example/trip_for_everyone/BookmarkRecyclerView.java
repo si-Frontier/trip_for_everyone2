@@ -30,7 +30,6 @@ public class BookmarkRecyclerView extends RecyclerView.Adapter<BookmarkRecyclerV
     }
     public void setBookmarkList(ArrayList<String> list){
         this.bookmarkList = list;
-
     }
 
     @Override

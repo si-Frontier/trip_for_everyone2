@@ -143,7 +143,7 @@ public class InfoActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("spotName", spotName);
         infoFragment1.setArguments(bundle);
-     //   infoFragment3.setArguments(bundle);
+        infoFragment3.setArguments(bundle);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
