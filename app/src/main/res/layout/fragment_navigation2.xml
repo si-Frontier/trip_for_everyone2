@@ -304,12 +304,12 @@
 
     <TextView
         android:id="@+id/addressTextView"
-        android:layout_width="59dp"
-        android:layout_height="30dp"
+        android:layout_width="85dp"
+        android:layout_height="32dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/residence_image"
         app:layout_constraintEnd_toEndOf="@+id/residence_image"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="@+id/residence_image"
         app:layout_constraintTop_toBottomOf="@+id/member_name_text"
         app:layout_constraintVertical_bias="1.0" />
