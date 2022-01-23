@@ -114,7 +114,7 @@ public class InfoFragment3 extends Fragment {
                         //Review review = snapshot.getValue(Review.class);
                        // review.getname();
                       //  list.add(child.getValue(Review.class));
-                       System.out.println("child"+ snapshot.getValue(Review.class));
+                    //   System.out.println("child"+ snapshot.getValue(Review.class));
                     }
                     mAdapter.setReviewmarkList(list);
                     mRecyclerView.setAdapter(mAdapter);
