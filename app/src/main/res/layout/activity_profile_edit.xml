@@ -160,13 +160,11 @@
         app:layout_constraintTop_toTopOf="@+id/profile_address"
         app:layout_constraintVertical_bias="0.08" />
 
-    <Button
+    <ImageButton
         android:id="@+id/profile_edit_ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/clear"
-        android:text="확인"
-        android:textColor="@color/black"
+        android:layout_width="355dp"
+        android:layout_height="61dp"
+        android:background="@drawable/profile_ok_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

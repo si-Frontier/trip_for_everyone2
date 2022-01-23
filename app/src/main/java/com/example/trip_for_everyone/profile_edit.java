@@ -21,6 +21,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -74,12 +75,13 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
     private NavigationFragment1 navigationFragment1 = new NavigationFragment1();
     private NavigationFragment2 navigationFragment2 = new NavigationFragment2();
     private navigation3 navigation3 = new navigation3();
-    private Button profile_edit_ok;
+    private ImageButton profile_edit_ok;
     private TextView profile_name;
     private TextView profile_address;
 
 
     Fragment fragment1;
+    Fragment fragment2;
 
 
     @Override
@@ -91,7 +93,7 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
         mPhotoImageView = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.profile_img);
         profile_name = (TextView) findViewById(R.id.profile_name);
         profile_address = (TextView) findViewById(R.id.profile_address);
-        profile_edit_ok = (Button)findViewById(R.id.profile_edit_ok);
+        profile_edit_ok = (ImageButton) findViewById(R.id.profile_edit_ok);
 
         //fragment 생성
 
@@ -163,14 +165,16 @@ public class profile_edit extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 fragment1 = new NavigationFragment2();
-               // getSupportFragmentManager().beginTransaction().replace(R.id.profile_edit,fragment1).addToBackStack(null).commit();
 
                 String ok = "ok";
                 Bundle bundle = new Bundle();
                 bundle.putString("ok",ok); // Key, Value
                 fragment1.setArguments(bundle);
-               // onResume();
                 finish();
+
+                //getSupportFragmentManager().beginTransaction().remove(fragment1).commit();
+               // onResume();
+
 
 
 
