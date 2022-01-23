@@ -20,12 +20,12 @@
 
     <EditText
         android:id="@+id/content"
-        android:layout_width="360dp"
-        android:layout_height="371dp"
+        android:layout_width="345dp"
+        android:layout_height="353dp"
         android:background="@drawable/border"
         android:backgroundTint="#BFBFBF"
         android:ems="10"
-        android:hint="솔직한 후기나 본인만의 팁을 공유해주세요!"
+        android:hint="  솔직한 후기나 본인만의 팁을 공유해주세요!"
         android:inputType="textPersonName"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,8 +51,8 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="231dp"
+        android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -79,6 +79,14 @@
 
             android:text="리뷰/팁 작성"/>
     </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="96dp"
+        android:layout_height="93dp"
+        app:srcCompat="@drawable/review_사진"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="509dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
