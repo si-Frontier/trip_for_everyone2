@@ -96,10 +96,10 @@ public class InfoFragment1 extends Fragment {
         TextView parkingTv = view.findViewById(R.id. info_parking_textView);
 
         TextView toiletTv = view.findViewById(R.id.info_toilet_textView);
-        TextView amenitiesTv = view.findViewById(R.id. info_amenities_textView);
-        TextView DisabledToiletTv = view.findViewById(R.id. info_Disabled_toilet_textView);
-        TextView DisabledParkingTv = view.findViewById(R.id. info_Disabled_parking_textView);
-        TextView familyToiletTv = view.findViewById(R.id.info_family_toilet);
+       // TextView amenitiesTv = view.findViewById(R.id. info_amenities_textView);
+     //   TextView DisabledToiletTv = view.findViewById(R.id. info_Disabled_toilet_textView);
+     //   TextView DisabledParkingTv = view.findViewById(R.id. info_Disabled_parking_textView);
+     //   TextView familyToiletTv = view.findViewById(R.id.info_family_toilet);
 
         ImageButton mapButton = view.findViewById(R.id.info_map_button);
 
@@ -137,9 +137,9 @@ public class InfoFragment1 extends Fragment {
 
                     //
 
-                    Info infoGroup = dataSnapshot.getValue(Info.class);
-                    familyToilet= infoGroup.get가족화장실();
-                    familyToiletTv.setText(familyToilet);
+                   // Info infoGroup = dataSnapshot.getValue(Info.class);
+                   // familyToilet= infoGroup.get가족화장실();
+                   // familyToiletTv.setText(familyToilet);
 
                     lat = group.getLatitude();
                     lon = group.getLongitude();
