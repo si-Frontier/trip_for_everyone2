@@ -91,7 +91,7 @@ public class InfoFragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_info3, container, false);
+        View view = inflater.inflate(R.layout.activity_info3_fake, container, false);
 
         list = new ArrayList<>();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -116,9 +116,9 @@ public class InfoFragment3 extends Fragment {
                       //  list.add(child.getValue(Review.class));
                     //   System.out.println("child"+ snapshot.getValue(Review.class));
                     }
-                    mAdapter.setReviewmarkList(list);
-                    mRecyclerView.setAdapter(mAdapter);
-                    mRecyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
+                    //mAdapter.setReviewmarkList(list);
+                    //mRecyclerView.setAdapter(mAdapter);
+                  //  mRecyclerView.setLayoutManager(new LinearLayoutManager(mcontext));
                 }
 
 
