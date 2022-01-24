@@ -38,6 +38,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <Button
+                android:id="@+id/rating_btn2"
+                android:layout_width="95dp"
+                android:layout_height="40dp"
+                android:backgroundTint="#FFFFFF"
+                android:text="리뷰수"
+                android:textColor="@color/glay"
+                app:iconTint="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/tmpInfoBtn2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.446"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.212" />
+
             <ImageButton
                 android:id="@+id/tmpInfoBtn"
                 android:layout_width="110dp"
@@ -86,27 +101,16 @@
                 android:id="@+id/rating_btn"
                 android:layout_width="95dp"
                 android:layout_height="40dp"
-                android:background="@drawable/choice_window"
+                android:backgroundTint="#FFFFFF"
                 android:text="평점"
+                android:textColor="@color/glay"
+                app:iconTint="#000000"
                 app:layout_constraintBottom_toBottomOf="@+id/tmpInfoBtn2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.098"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.212" />
-
-            <Button
-                android:id="@+id/re_num_btn"
-                android:layout_width="95dp"
-                android:layout_height="40dp"
-                android:background="@drawable/choice_window"
-                android:text="리뷰수"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.443"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.145" />
 
             <TextView
                 android:id="@+id/main_title"

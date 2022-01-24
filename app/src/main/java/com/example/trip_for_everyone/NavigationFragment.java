@@ -111,9 +111,9 @@ public class NavigationFragment extends Fragment {
 
         //여행지 클릭시 여행지 이름 인텐트에 담기
 
-        Button tmpButton = view.findViewById(R.id.tmpInfoBtn);
+        ImageButton tmpButton = view.findViewById(R.id.tmpInfoBtn);
 
-        tmpButton.setOnClickListener(new View.OnClickListener() {
+        /*tmpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent tmpintent = new Intent(getContext(), InfoActivity.class);
@@ -122,7 +122,7 @@ public class NavigationFragment extends Fragment {
 
 
             }
-        });
+        });*/
         GregorianCalendar today = new GregorianCalendar();
         Integer year = today.get(today.YEAR);
         Integer month = today.get(today.MONTH);
@@ -138,11 +138,11 @@ public class NavigationFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int tmp = 0;
-                int random = rand.nextInt((int)snapshot.getChildrenCount()-3);
+                int random = 1;
                 Log.d("gyu",random+" ");
 
                 for(DataSnapshot data : snapshot.getChildren()){
-                    if(tmp>=random&&tmp<random+3){
+                    if(tmp>=random&&tmp<(random+3)% snapshot.getChildrenCount()){
                         Log.d("gyu",data.getKey());
                         path.add("spot/"+data.getKey());
 
