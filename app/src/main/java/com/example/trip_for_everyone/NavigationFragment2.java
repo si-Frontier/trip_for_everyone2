@@ -1,5 +1,7 @@
 package com.example.trip_for_everyone;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -85,6 +87,7 @@ public class NavigationFragment2 extends Fragment {
 
     MainActivity activity;
 
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -136,7 +139,7 @@ public class NavigationFragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), profile_edit.class);
-                startActivity(intent);
+                startActivity(new Intent(intent));
                 //onResume();
             }
         });
@@ -250,8 +253,6 @@ public class NavigationFragment2 extends Fragment {
 
 
 
-
-        // addValueEventListener
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
@@ -261,6 +262,9 @@ public class NavigationFragment2 extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         DatabaseReference fileUrl = mDatabase.child(uid);
         StorageReference storageRef = storage.getReference(); //스토리지참고
+
+        // addValueEventListener
+
         storageRef.child("images/"+"users/"+fileUrl).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -423,6 +427,8 @@ public class NavigationFragment2 extends Fragment {
 //        });
         return view;
     }
+
+
 
 
 

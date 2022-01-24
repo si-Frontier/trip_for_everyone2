@@ -42,12 +42,10 @@ public class ReviewRecycleView  extends RecyclerView.Adapter<ReviewRecycleView.I
 
     @Override
     public int getItemCount() {
-        // RecyclerView의 총 개수 입니다.
         return listData.size();
     }
 
     void addItem(Review data) {
-        // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }
 
@@ -70,11 +68,11 @@ public class ReviewRecycleView  extends RecyclerView.Adapter<ReviewRecycleView.I
             ratingBar = itemView.findViewById(R.id.item_star);
        }
 
-        void onBind(Review data){
-            name_Tv.setText(data.getcontent());
-            content_Tv.setText(data.getcontent());
-            name_Tv.setText(data.getname());
-            ratingBar.setRating(data.getstar());
+        void onBind(Review review){
+            name_Tv.setText(review.getcontent());
+            content_Tv.setText(review.getcontent());
+            name_Tv.setText(review.getname());
+            ratingBar.setRating(review.getstar());
             //리뷰 카운트 만들기
 
         }
