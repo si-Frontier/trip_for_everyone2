@@ -38,12 +38,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
                 android:id="@+id/tmpInfoBtn"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginTop="130dp"
-                android:background="@drawable/main_box"
+                android:background="@drawable/kb"
                 android:text="Button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -53,12 +53,12 @@
                 app:layout_constraintVertical_bias="0.0" />
 
 
-            <Button
+            <ImageButton
                 android:id="@+id/tmpInfoBtn2"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginTop="245dp"
-                android:background="@drawable/main_box"
+                android:background="@drawable/lt"
                 android:text="Button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,13 +67,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.056" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/tmpInfoBtn3"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginTop="380dp"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/main_box"
+                android:background="@drawable/ho"
                 android:text="Button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -126,38 +126,38 @@
                 android:id="@+id/one_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="경복궁"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintHorizontal_bias="0.434"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.287" />
+                app:layout_constraintVertical_bias="0.289" />
 
             <TextView
                 android:id="@+id/one_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="종로구 세종로 사직로 161"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintHorizontal_bias="0.607"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.351" />
+                app:layout_constraintVertical_bias="0.347" />
 
             <TextView
                 android:id="@+id/two_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="롯데월드타워"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.525" />
@@ -166,39 +166,39 @@
                 android:id="@+id/two_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="송파구 잠실6동 올림픽로 300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintHorizontal_bias="0.665"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.584" />
+                app:layout_constraintVertical_bias="0.588" />
 
             <TextView
                 android:id="@+id/three_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="북촌 한옥마을"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.464"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.794" />
+                app:layout_constraintVertical_bias="0.798" />
 
             <TextView
                 android:id="@+id/three_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="종로구 계동 계동길 37"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintHorizontal_bias="0.562"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.858" />
+                app:layout_constraintVertical_bias="0.856" />
 
             <ImageView
                 android:id="@+id/line_one"
