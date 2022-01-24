@@ -122,7 +122,7 @@ public class NavigationFragment extends Fragment {
 
 
             }
-        });*/
+        });
         GregorianCalendar today = new GregorianCalendar();
         Integer year = today.get(today.YEAR);
         Integer month = today.get(today.MONTH);
