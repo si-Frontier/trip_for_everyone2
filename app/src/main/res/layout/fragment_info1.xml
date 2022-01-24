@@ -226,15 +226,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="대여 가능 기구"
+            android:text="가족화장실"
             android:textSize="15sp"
             android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/info_rental_textView"
+            android:id="@+id/info_family_toilet"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10:00~11:00"
+            android:layout_height="match_parent"
+            android:text="있음"
             android:textSize="15sp" />
     </LinearLayout>
 
@@ -250,7 +250,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="편의 시설"
+            android:text="장애인화장실"
             android:textSize="15sp"
             android:layout_weight="1"/>
 
@@ -259,7 +259,7 @@
             android:id="@+id/info_amenities_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="토요일,일요일"
+            android:text="있음"
             android:textSize="15sp" />
     </LinearLayout>
 
@@ -276,7 +276,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="장애인 화장실"
+            android:text="유아차 대여소"
             android:textSize="15sp"
             android:layout_weight="1"/>
 
@@ -285,7 +285,29 @@
             android:id="@+id/info_Disabled_toilet_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100,000원"
+            android:text="없음"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="@dimen/margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="유아차 보관"
+            android:textSize="15sp"
+            android:layout_weight="1"/>
+
+
+        <TextView
+             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가능함"
             android:textSize="15sp" />
     </LinearLayout>
 
@@ -301,7 +323,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전용 주차장"
+            android:text="수유실"
             android:textSize="15sp"
             android:layout_weight="1"/>
 
@@ -313,6 +335,35 @@
             android:text="있음"
             android:textSize="15sp" />
     </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="@dimen/margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="휠체어"
+            android:textSize="15sp"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:id="@+id/info_exchange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="진입하기 편리함"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+
 
 
     <View

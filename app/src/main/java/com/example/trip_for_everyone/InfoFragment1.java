@@ -45,7 +45,7 @@ public class InfoFragment1 extends Fragment {
     private String admission;
     private String parking;
     private Double lat,lon;
-
+    private String familyToilet;
     private String toilet;
     private String rental;
     private String amenities;
@@ -96,10 +96,10 @@ public class InfoFragment1 extends Fragment {
         TextView parkingTv = view.findViewById(R.id. info_parking_textView);
 
         TextView toiletTv = view.findViewById(R.id.info_toilet_textView);
-        TextView rentalTv = view.findViewById(R.id.info_rental_textView);
         TextView amenitiesTv = view.findViewById(R.id. info_amenities_textView);
         TextView DisabledToiletTv = view.findViewById(R.id. info_Disabled_toilet_textView);
         TextView DisabledParkingTv = view.findViewById(R.id. info_Disabled_parking_textView);
+        TextView familyToiletTv = view.findViewById(R.id.info_family_toilet);
 
         ImageButton mapButton = view.findViewById(R.id.info_map_button);
 
@@ -134,6 +134,12 @@ public class InfoFragment1 extends Fragment {
                         admission="없음";
                     admissionTv.setText(admission);
                     System.out.println(admission);
+
+                    //
+
+                    Info infoGroup = dataSnapshot.getValue(Info.class);
+                    familyToilet= infoGroup.get가족화장실();
+                    familyToiletTv.setText(familyToilet);
 
                     lat = group.getLatitude();
                     lon = group.getLongitude();
